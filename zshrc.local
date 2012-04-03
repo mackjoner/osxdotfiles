@@ -1,0 +1,375 @@
+export PYTHONSTARTUP='/home/liuerfire/.config/pythonstartup.py'
+
+#export PATH="$PATH:$HOME/bin/"
+#关于历史纪录的配置
+# number of lines kept in history
+export HISTSIZE=10000
+# # number of lines saved in the history after logout
+export SAVEHIST=10000
+# # location of history
+export HISTFILE=~/.zhistory
+# # append command to history file once executed
+setopt INC_APPEND_HISTORY
+
+setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
+
+#启用cd命令的历史记录,cd -[TAB]进入历史路径
+setopt AUTO_PUSHD
+#相同的历史路径只保留一个
+setopt PUSHD_IGNORE_DUPS
+
+#在命令前添加空格,不将此命令添加到记录文件中
+setopt HIST_IGNORE_SPACE
+
+#bindkey -e
+#设置DEL键为向后删除
+#bindkey "\e[3~" delete-char
+##############################################################
+
+###################Second Section#############################
+#others{{{
+#允许在交互模式中试用注释
+#cmd #这是注释
+setopt INTERACTIVE_COMMENTS
+
+#启动自动cd ,输入目录名则进入目录
+setopt AUTO_CD
+
+#扩展路径
+#/v/c/p/p => /var/cache/pacman/pkg
+setopt  complete_in_word
+
+#禁用core dumps
+limit coredumpsize 0 
+
+#自动补全功能
+setopt AUTO_LIST
+setopt AUTO_MENU
+#开启此选项,补全时会直接选中菜单项
+setopt MENU_COMPLETE
+
+autoload -Uz compinit
+compinit
+#}}}
+##############################################################
+
+################Promote setting###############################
+#Prompt setup
+#autoload -U promptinit
+#promptinit
+#prompt elite2 green
+##############################################################
+
+################auto completion###############################
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' menu select
+zstyle ':completion:*:*:default' force-list always
+zstyle ':completion:*' select-prompt '%SSelect: lines: %L matches: %M [%p]'
+
+zstyle ':completion:*:match:*' original only
+zstyle ':completion::prefix-1:*' completer _complete
+zstyle ':completion:predict:*' completer _complete
+zstyle ':completion:incremental:*' completer _complete_correct
+zstyle ':completion:*' completer _complete _prefix _correct _prefix _match _approximate
+
+#路径补全
+zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*' squeeze-slashes 'yes'
+zstyle ':completion::completion:*' '\\'
+
+#ssh补全
+#my_account=(
+    #root@www.freetstar.com
+#)
+#zstyle ':completion:*:my_account' user-hosts $my_account
+#彩色补全菜单
+eval $(dircolors -b)
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+
+
+#错误矫正
+zstyle ':completion:*' completer _complete _math _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+#kill命令补全
+compdef pkill=killall
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:*:*:processes' fore-list always
+zstyle ':completion:*:processes' command 'ps -au$USER'
+
+#命令补全
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:options'  description 'yes'
+zstyle ':completion:*:options'  auto-description '%d'
+zstyle ':completion:*:descriptions' format $'\e[01;33m -- %d --\e[0m '
+zstyle ':completion:*:messages' format $'\e[01;35m -- %d --\e[0m'
+zstyle ':completion:*:warings' format $'\e[01;31m -- No Match Found -- \e[0m'
+zstyle ':completion:*:corrections' format $'\e[01;32m -- %d(errors: %e) -- \e[0m'
+
+#cd  ~补全顺序
+zstyle ':completion:*:-tilde-:*' group-order 'name-directories' 'path-directories' 'users' 'expand'
+
+#}}}
+##############################################################
+
+################################add sudo#######################
+sudo-command-line(){
+ [[ -z $BUFFER ]] && zle up-history
+ [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+#插入光表后,光表移动到行末尾
+}
+zle -N sudo-command-line
+#Esc Esc 在命令前插入sudo
+bindkey "\e\e" sudo-command-line
+###############################################################
+
+###################associate the file with applications#######
+#autoload -U zsh-mime-setup
+#zsh-mime-setup
+#alias -s png=eog
+#alias -s c=vim
+#alias -s cpp=vim
+
+
+#zsh 命令带颜色
+############################################################
+
+TOKENS_FOLLOWED_BY_COMMANDS=('|' '||' ';' '&' '&&' 'sudo' 'do' 'time' 'strace')
+
+recolor-cmd() {
+    region_highlight=()
+    colorize=true
+    start_pos=0
+    for arg in ${(z)BUFFER}; do
+        ((start_pos+=${#BUFFER[$start_pos+1,-1]}-${#${BUFFER[$start_pos+1,-1]## #}}))
+        ((end_pos=$start_pos+${#arg}))
+        if $colorize; then
+            colorize=false
+            res=$(LC_ALL=C builtin type $arg 2>/dev/null)
+            case $res in
+                *'reserved word'*)   style="fg=magenta,bold";;
+                *'alias for'*)       style="fg=cyan,bold";;
+                *'shell builtin'*)   style="fg=yellow,bold";;
+                *'shell function'*)  style='fg=green,bold';;
+                *"$arg is"*)         
+                    [[ $arg = 'sudo' ]] && style="fg=red,bold" || style="fg=blue,bold";;
+                *)                   style='none,bold';;
+            esac
+            region_highlight+=("$start_pos $end_pos $style")
+        fi
+        [[ ${${TOKENS_FOLLOWED_BY_COMMANDS[(r)${arg//|/\|}]}:+yes} = 'yes' ]] && colorize=true
+        start_pos=$end_pos
+    done
+}
+
+check-cmd-self-insert() { zle .self-insert && recolor-cmd }
+check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
+
+zle -N self-insert check-cmd-self-insert
+zle -N backward-delete-char check-cmd-backward-delete-char
+############################################################################################
+
+#We set some options here
+#setopt extended_glob
+setopt correctall
+export HISTTIMEFORMAT='%F %T '
+#less 语法高亮需要安装source-highlight
+PAGER='less -X -M'
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
+#让cat命令也语法高亮
+hlcat(){ less $*|cat }
+alias tom='hlcat'
+#########
+#zsh有一个奇怪的现象,就是新安装完一个软件之后
+#无法tab出来,也就是无法通过tab试用,只能全命令打出
+#有答案说是zsh是先生成哈席表,故需要rehash一下...
+#
+#
+
+####################alias configuration######################
+#alias grep='grep --color=auto'
+#alias ll='ls -l'
+#alias hm="history|grep"
+#alias history='history -fi'
+#alias ls='ls --color=auto'
+#alias top10='print -l $((o)history%% *)|uniq -c|sort -nr|head -n 10'
+alias sysintalltime='ls -lct /etc |tail -1 |awk '{print $6,$7,$8}''
+
+alias capturescreen='scrot -t 20 -d 5'
+
+alias fuckGFW='ssh -qTfnN -D 7070 liuerfire@ssh.sshcenter.info'
+
+alias googleSSH='chromium --proxy-server="socks5://localhost:7070"'
+
+# Use ffmpeg to record screen capture
+alias screencap="ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s $(xwininfo -root | grep 'geometry' | awk '{print $2;}') -i :0.0 -acodec pcm_s16le -vcodec libx264 -vpre lossless_ultrafast -threads 0 -y ~/Videos/screencast_baking.avi"
+
+# Use mplayer to take snapshots from the webcam
+alias mpscreen='mplayer tv:// -tv driver=v4l2:width=640:height=480:device=/dev/video0 -fps 15 -vf screenshot'
+
+alias upgrade='yaourt -Syua'
+
+alias convmid3='find -iname "*.mp3" -execdir mid3iconv -e GBK {} \;'
+
+#man手册的颜色配置
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;37m") \
+		LESS_TERMCAP_md=$(printf "\e[1;37m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;47;30m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[0;36m") \
+			man "$@"
+}
+
+#效果超炫的提示符，如需要禁用，注释下面配置   
+#function precmd {
+    
+#    local TERMWIDTH
+#    (( TERMWIDTH = ${COLUMNS} - 1 ))
+
+    
+#    ###
+#    # Truncate the path if it's too long.
+    
+#    PR_FILLBAR=""
+#    PR_PWDLEN=""
+    
+#    local promptsize=${#${(%):---(%n@%m:%l)---()--}}
+#    local pwdsize=${#${(%):-%~}}
+    
+#    if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
+#    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
+#    else
+#    PR_FILLBAR="\${(l.(($TERMWIDTH - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
+#    fi
+    
+    
+#    ###
+#    # Get APM info.
+    
+#    #if which ibam > /dev/null; then
+#    #PR_APM_RESULT=`ibam --percentbattery`
+#    #elif which apm > /dev/null; then
+#    #PR_APM_RESULT=`apm`
+#    #fi
+#}
+
+
+#setopt extended_glob
+#preexec () {
+#    if [[ "$TERM" == "screen" ]]; then
+#    local CMD=${1[(wr)^(*=*|sudo|-*)]}
+#    echo -n "\ek$CMD\e\\"
+#    fi
+#}
+
+#setprompt () {
+#    ###
+#    # Need this so the prompt will work.
+
+#    setopt prompt_subst
+    
+
+#    ###
+#    # See if we can use colors.
+
+#    autoload colors zsh/terminfo
+#    if [[ "$terminfo[colors]" -ge 8 ]]; then
+#    colors
+#    fi
+#    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+#    eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+#    eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+#    (( count = $count + 1 ))
+#    done
+#    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
+    
+    
+#    ###
+#    # See if we can use extended characters to look nicer.
+    
+#    typeset -A altchar
+#    set -A altchar ${(s..)terminfo[acsc]}
+#    PR_SET_CHARSET="%{$terminfo[enacs]%}"
+#    PR_SHIFT_IN="%{$terminfo[smacs]%}"
+#    PR_SHIFT_OUT="%{$terminfo[rmacs]%}"
+#    PR_HBAR=${altchar[q]:--}
+#    #PR_HBAR=" "
+#    PR_ULCORNER=${altchar[l]:--}
+#    PR_LLCORNER=${altchar[m]:--}
+#    PR_LRCORNER=${altchar[j]:--}
+#    PR_URCORNER=${altchar[k]:--}
+    
+    
+#    ###
+#    # Decide if we need to set titlebar text.
+    
+#    case $TERM in
+#    xterm*)
+#        PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
+#        ;;
+#    screen)
+#        PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
+#        ;;
+#    *)
+#        PR_TITLEBAR=''
+#        ;;
+#    esac
+    
+    
+#    ###
+#    # Decide whether to set a screen title
+#    if [[ "$TERM" == "screen" ]]; then
+#    PR_STITLE=$'%{\ekzsh\e\\%}'
+#    else
+#    PR_STITLE=''
+#    fi
+    
+    
+#    ###
+#    # APM detection
+    
+#    #if which ibam > /dev/null; then
+#    #PR_APM='$PR_RED${${PR_APM_RESULT[(f)1]}[(w)-2]}%%(${${PR_APM_RESULT[(f)3]}[(w)-1]})$PR_LIGHT_BLUE:'
+#    #elif which apm > /dev/null; then
+#    #PR_APM='$PR_RED${PR_APM_RESULT[(w)5,(w)6]/\% /%%}$PR_LIGHT_BLUE:'
+#    #else
+#    PR_APM=''
+#    #fi
+    
+    
+#    ###
+#    # Finally, the prompt.
+    
+#    PROMPT='$PR_SET_CHARSET$PR_STITLE${(e)PR_TITLEBAR}\
+#$PR_CYAN$PR_SHIFT_IN$PR_ULCORNER$PR_BLUE$PR_HBAR$PR_SHIFT_OUT(\
+#$PR_GREEN%(!.%SROOT%s.%n)$PR_GREEN@%m:%l\
+#$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_CYAN$PR_HBAR${(e)PR_FILLBAR}$PR_BLUE$PR_HBAR$PR_SHIFT_OUT(\
+#$PR_MAGENTA%$PR_PWDLEN<...<%~%<<\
+#$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_CYAN$PR_URCORNER$PR_SHIFT_OUT\
+
+#$PR_CYAN$PR_SHIFT_IN$PR_LLCORNER$PR_BLUE$PR_HBAR$PR_SHIFT_OUT(\
+#%(?..$PR_LIGHT_RED%?$PR_BLUE:)\
+#${(e)PR_APM}$PR_YELLOW%D{%H:%M}\
+#$PR_LIGHT_BLUE:%(!.$PR_RED.$PR_WHITE)%#$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+#$PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+#$PR_NO_COLOUR '
+    
+#    RPROMPT=' $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_BLUE$PR_HBAR$PR_SHIFT_OUT\
+#($PR_YELLOW%D{%a,%b%d}$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_CYAN$PR_LRCORNER$PR_SHIFT_OUT$PR_NO_COLOUR'
+    
+#    PS2='$PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+#$PR_BLUE$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT(\
+#$PR_LIGHT_GREEN%_$PR_BLUE)$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+#$PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
+#}
+
+#setprompt
