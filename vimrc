@@ -1,3 +1,35 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'L9'
+Bundle 'bufexplorer.zip'
+Bundle 'taglist.vim'
+Bundle 'AutoComplPop'
+Bundle 'Tagbar'
+Bundle 'OmniCppComplete'
+Bundle 'Conque-Shell'
+Bundle 'The-NERD-Commenter'
+Bundle 'The-NERD-tree'
+Bundle 'genutils'
+Bundle 'xmledit'
+Bundle 'vimwiki'
+Bundle 'pyflakes.vim'
+Bundle 'snipMate'
+Bundle 'Markdown'
+Bundle 'indentpython.vim'
+Bundle 'surround.vim'
+Bundle 'matchit.zip'
+Bundle 'Mark'
+Bundle 'ShowMarks'
+Bundle 'a.vim'
+Bundle 'FencView.vim'
+
+filetype plugin indent on
+
 let mapleader = ";"    " 比较习惯用;作为命令前缀，右手小拇指直接能按到
 " 把空格键映射成:
 nmap <space> :
@@ -32,12 +64,12 @@ endif
 "set listchars=tab:>-,trail:-
 set background=dark
 set t_Co=256
-colorscheme molokai
-set nocompatible    " 关闭兼容模式
+colorscheme inkpot
+"set nocompatible    " 关闭兼容模式
 set display=lastline
 syntax enable       " 语法高亮
-filetype plugin on  " 文件类型插件
-filetype indent on
+"filetype plugin on  " 文件类型插件
+"filetype indent on
 set shortmess=atI   " 去掉欢迎界面
 autocmd BufEnter * :syntax sync fromstart
 set nu              " 显示行号
@@ -91,7 +123,7 @@ if (g:isGUI)
     " 不显示toolbar
     set guioptions-=T
     " 不显示菜单栏
-    set guioptions-=m
+    "set guioptions-=m
     " 关闭左右滚动条
     set guioptions-=L
     set guioptions-=r
@@ -394,6 +426,8 @@ let wiki.path = '~/Dropbox/MyWiki/my_site/'
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let g:vimwiki_list = [wiki]
 
+let g:showmarks_enable = 0
+
 "}}}
 "======================================================
 
@@ -414,3 +448,4 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType java set omnifunc=javacomplete#Complete
 
 "======================================================
+
