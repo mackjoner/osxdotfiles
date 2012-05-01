@@ -27,6 +27,7 @@ Bundle 'Mark'
 Bundle 'ShowMarks'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
+Bundle 'Solarized'
 
 filetype plugin indent on
 
@@ -64,7 +65,7 @@ endif
 "set listchars=tab:>-,trail:-
 set background=dark
 set t_Co=256
-colorscheme inkpot
+colorscheme desert
 "set nocompatible    " 关闭兼容模式
 set display=lastline
 syntax enable       " 语法高亮
@@ -118,8 +119,8 @@ if (g:isGUI)
     set cursorline
     hi cursorline guibg=#333333
     hi CursorColumn guibg=#333333
-    set guifont=Monaco\ 12
-    set guifontwide=Monaco\ 12
+    set guifont=Ubuntu\ Mono\ 12
+    set guifontwide=Ubuntu\ Mono\ 12
     " 不显示toolbar
     set guioptions-=T
     " 不显示菜单栏
@@ -182,7 +183,7 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 " {{{
 
 " 在文件名上按gf时，在新的tab中打开
-"map gf :tabnew <cfile><cr>
+map gf :e <cfile><cr>
 
 " 用c-j,k在buffer之间切换
 nn <C-J> :bn<cr>
@@ -448,4 +449,3 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType java set omnifunc=javacomplete#Complete
 
 "======================================================
-
