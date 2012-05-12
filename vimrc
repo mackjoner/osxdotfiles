@@ -18,7 +18,6 @@ Bundle 'genutils'
 Bundle 'xmledit'
 Bundle 'vimwiki'
 Bundle 'pyflakes.vim'
-Bundle 'snipMate'
 Bundle 'Markdown'
 Bundle 'indentpython.vim'
 Bundle 'surround.vim'
@@ -28,6 +27,7 @@ Bundle 'ShowMarks'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
 Bundle 'Solarized'
+Bundle 'liuerfire/my_snipMate.git'
 
 filetype plugin indent on
 
@@ -151,7 +151,7 @@ function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "g")
     return curdir
 endfunction
-set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\ \|\ %{$USER}\ @\ %{hostname()}\ 
+set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\  
 
 "====================================================== 
 
