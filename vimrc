@@ -28,6 +28,7 @@ Bundle 'a.vim'
 Bundle 'FencView.vim'
 Bundle 'Solarized'
 Bundle 'liuerfire/my_snipMate.git'
+Bundle 'nathanaelkane/vim-indent-guides.git'
 
 filetype plugin indent on
 
@@ -155,8 +156,18 @@ set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \
 
 "====================================================== 
 
-" 第80列往后加下划线
+" 高亮光标所在列
 "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
+map ;ch :call SetColorColumn()<CR>
+function! SetColorColumn()
+    let col_num = virtcol(".")
+    let cc_list = split(&cc, ',')
+    if count(cc_list, string(col_num)) <= 0
+        execute "set cc+=".col_num
+    else
+        execute "set cc-=".col_num
+    endif
+endfunction
 
 " 根据给定方向搜索当前光标下的单词，结合下面两个绑定使用
 function! VisualSearch(direction) range
@@ -428,6 +439,9 @@ let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let g:vimwiki_list = [wiki]
 
 let g:showmarks_enable = 0
+
+" indent guidess settings
+let g:indent_guides_guide_size = 1
 
 "}}}
 "======================================================
