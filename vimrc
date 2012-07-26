@@ -9,7 +9,7 @@ Bundle 'L9'
 Bundle 'bufexplorer.zip'
 Bundle 'taglist.vim'
 Bundle 'AutoComplPop'
-Bundle 'Tagbar'
+Bundle 'majutsushi/tagbar'
 Bundle 'OmniCppComplete'
 Bundle 'rosenfeld/conque-term'
 Bundle 'The-NERD-Commenter'
@@ -29,6 +29,7 @@ Bundle 'FencView.vim'
 Bundle 'Solarized'
 Bundle 'liuerfire/my_snipMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
+Bundle 'tir_black'
 
 filetype plugin indent on
 
@@ -66,7 +67,7 @@ endif
 "set listchars=tab:>-,trail:-
 set background=dark
 set t_Co=256
-colorscheme desert
+colorscheme molokai
 "set nocompatible    " 关闭兼容模式
 set display=lastline
 syntax enable       " 语法高亮
@@ -327,10 +328,6 @@ nmap <leader>f :NERDTreeToggle<cr>
 "======================================================
 
 
-" DoxygenToolkit.vim
-" http://www.vim.org/scripts/script.php?script_id=987
-" 暂时没有使用
-
 " 更新ctags和cscope索引
 " href: http://www.vimer.cn/2009/10/把vim打造成一个真正的ide2.html
 " 稍作修改，提取出DeleteFile函数，修改ctags和cscope执行命令
@@ -441,6 +438,7 @@ let g:vimwiki_list = [wiki]
 let g:showmarks_enable = 0
 
 " indent guidess settings
+let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
 "}}}
