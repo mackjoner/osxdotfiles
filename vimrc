@@ -31,6 +31,7 @@ Bundle 'liuerfire/my_snipMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'tir_black'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'pangloss/vim-javascript'
 
 filetype plugin indent on
 
@@ -47,12 +48,6 @@ inoremap <leader>n <esc>
 " 自动切换目录
 autocmd BufEnter * silent! lcd %:p:h
 
-" 判断操作系统
-if (has("win32") || has("win64") || has("win32unix"))
-    let g:isWin = 1
-else
-    let g:isWin = 0
-endif
 
 " 判断是终端还是gvim
 if has("gui_running")
@@ -136,13 +131,8 @@ endif
 "======================================================  
 
 " 设置字符集编码，默认使用utf8
-if (g:isWin)
-    let &termencoding=&encoding " 通常win下的encoding为cp936
-    set fileencodings=utf8,cp936,ucs-bom,latin1
-else
-    set encoding=utf8
-    set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
-endif
+set encoding=utf8
+set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
 
 "======================================================
 
@@ -356,11 +346,7 @@ function! Do_CsTag()
         silent! execute "!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q ."
     endif
     if(executable('cscope') && has("cscope") )
-        if(g:isWin)
-            silent! execute "!dir /s/b *.c,*.cpp,*.h,*.java,*.cs >> cscope.files"
-        else
-            silent! execute "!find . -iname '*.[ch]' -o -name '*.cpp' > cscope.files"
-        endif
+        silent! execute "!find . -iname '*.[ch]' -o -name '*.cpp' > cscope.files"
         silent! execute "!cscope -b"
         execute "normal :"
         if filereadable("cscope.out")
@@ -443,12 +429,16 @@ let g:vimwiki_list = [wiki]
 let g:showmarks_enable = 0
 
 " indent guidess settings
-let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 
 " powerline settings
 let g:Powerline_symbols = 'unicode'
 let g:Powerline_stl_path_style = 'full'
+
+" vim-javascript settings
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
 
 "}}}
 "======================================================
