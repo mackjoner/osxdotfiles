@@ -30,6 +30,7 @@ Bundle 'Solarized'
 Bundle 'liuerfire/my_snipMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'tir_black'
+Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on
 
@@ -147,13 +148,17 @@ endif
 
 " 状态栏
 set laststatus=2      " 总是显示状态栏
-highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
+"highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
 " 获取当前路径，将$HOME转化为~
-function! CurDir()
-    let curdir = substitute(getcwd(), $HOME, "~", "g")
-    return curdir
-endfunction
-set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\  
+"function! CurDir()
+    "let curdir = substitute(getcwd(), $HOME, "~", "g")
+    "return curdir
+"endfunction
+"set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\  
+
+"set statusline=[%n]\ %t%m%r%h%y\ \|\ %{CurDir()}\ \|%=%{&ff}\ \|\ 
+"set statusline+=%{&fenc!=''?&fenc:&enc}\ \|\ 
+"set statusline+=%l,%c\ %p%%\ \|\ 
 
 "====================================================== 
 
@@ -440,6 +445,10 @@ let g:showmarks_enable = 0
 " indent guidess settings
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
+
+" powerline settings
+let g:Powerline_symbols = 'unicode'
+let g:Powerline_stl_path_style = 'full'
 
 "}}}
 "======================================================
