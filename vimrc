@@ -85,7 +85,7 @@ set magic           " 额，自己:h magic吧，一行很难解释
 set showmatch       " 显示匹配的括号
 set nobackup        " 关闭备份
 set nowb
-set noswapfile      " 不使用swp文件，注意，错误退出后无法恢复
+"set noswapfile      " 不使用swp文件，注意，错误退出后无法恢复
 set lbr             " 在breakat字符处而不是最后一个字符处断行
 set ai              " 自动缩进
 set si              " 智能缩进
