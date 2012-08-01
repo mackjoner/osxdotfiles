@@ -32,6 +32,7 @@ Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'tir_black'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
+Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on
 
@@ -40,7 +41,7 @@ let mapleader = ";"    " 比较习惯用;作为命令前缀，右手小拇指直
 nmap <space> :
 
 " 快捷打开编辑vimrc文件的键盘绑定
-map <silent> <leader>ee :e $HOME/.vimrc<cr>
+map <silent> <leader>e :e $HOME/.vimrc<cr>
 autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 
 inoremap <leader>n <esc>
