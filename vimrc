@@ -357,11 +357,7 @@ endfunction
 
 function! DeleteFile(dir, filename)
     if filereadable(a:filename)
-        if (g:isWin)
-            let ret = delete(a:dir."\\".a:filename)
-        else
-            let ret = delete("./".a:filename)
-        endif
+        let ret = delete("./".a:filename)
         if (ret != 0)
             echohl WarningMsg | echo "Failed to delete ".a:filename | echohl None
             return 1
