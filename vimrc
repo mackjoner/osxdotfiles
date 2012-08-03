@@ -190,9 +190,6 @@ vnoremap <silent> # :call VisualSearch('b')<CR>
 " 自定义按键
 " {{{
 
-" 在文件名上按gf时，在新的tab中打开
-map gf :e <cfile><cr>
-
 " 用c-j,k在buffer之间切换
 nn <C-J> :bn<cr>
 nn <C-K> :bp<cr>
