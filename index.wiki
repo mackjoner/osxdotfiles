@@ -1,35 +1,7 @@
  = Liuerfire's Wiki World =
- 
-== Gentoo Installation Guide ==
-`gentoo-sources, gentoolkit, ccache, syslog-ng`
-`emerge-e system`
-`python-updater`
-`revdep-rebuild`
-`编译内核`
+=== Tips ===
 
-=== 更新gcc ===
-`# emerge -u gcc`
-`# gcc-config -l`
-`# gcc-config number`
-`# env-update && source /etc/profile `
-`# emerge --oneshot libtool`
-`# revdep-rebuild --library libstdc++.so.7`
-
-=== 配置locale，网络神马的... ===
-`nano -w /etc/conf.d/hostname`
-`hostname="hostname"`
-
-`nano -w /etc/conf.d/net`
-`config_eth0="dhcp"`
-
-`cd /etc/init.d/`
-`ln -s net.lo net.eth0`
-`rc-update add net.eth0 default`
-
-`nano -w /etc/locale.gen`
-`nano -w /etc/env.d/02locale`
-`LANG="en_US.UTF-8"`
-`LC_COLLATE="C"`
+注: 此wiki的是按照vimwiki的语法写的
 
 ==== synaptics touchpad settings ====
 use *synclient*
@@ -50,3 +22,35 @@ e.g.
  
 ==== git color output ====
 `git config --global --add color.ui true`
+ 
+=== Gentoo Simple Installation Guide ===
+`gentoo-sources, gentoolkit, ccache, syslog-ng`
+`emerge-e system`
+`python-updater`
+`revdep-rebuild`
+`编译内核`
+
+==== 更新gcc ====
+`# emerge -u gcc`
+`# gcc-config -l`
+`# gcc-config number`
+`# env-update && source /etc/profile `
+`# emerge --oneshot libtool`
+`# revdep-rebuild --library libstdc++.so.7`
+
+==== 配置locale，网络神马的... ====
+`nano -w /etc/conf.d/hostname`
+`hostname="hostname"`
+
+`nano -w /etc/conf.d/net`
+`config_eth0="dhcp"`
+
+`cd /etc/init.d/`
+`ln -s net.lo net.eth0`
+`rc-update add net.eth0 default`
+
+`nano -w /etc/locale.gen`
+`nano -w /etc/env.d/02locale`
+`LANG="en_US.UTF-8"`
+`LC_COLLATE="C"`
+
