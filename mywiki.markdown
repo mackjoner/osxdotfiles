@@ -1,7 +1,9 @@
 Liuerfire's Wiki World
 ======================
 
-### Tips
+Tips
+----
+
 #### synaptics touchpad settings
 use *synclient*
 e.g. 
@@ -21,9 +23,11 @@ special window settings -> obey geometry restrictions -> focus -> no
     
 ***
  
-### Gentoo Simple Installation Guide
+Gentoo Simple Installation Guide
+--------------------------------
+
+#### Some packages
     gentoo-sources, gentoolkit, ccache, syslog-ng
-    emerge-e system
     python-updater
     revdep-rebuild
     编译内核
