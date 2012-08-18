@@ -15,9 +15,6 @@ e.g.
 
 #### KDE下gvim，xterm最大化问题解决
 special window settings -> obey geometry restrictions -> focus -> no
-
-#### 查看top10命令
-     history | awk '{CMD[$2]++;count++;} END { for (a in CMD )print CMD[ a ]" " CMD[ a ]/count*100 "% " a }' | grep -v "./" | column -c3 -s " " -t |sort -nr | nl | head -n10
  
 #### git color output
     git config --global --add color.ui true
@@ -42,14 +39,11 @@ special window settings -> obey geometry restrictions -> focus -> no
 #### 配置locale，网络神马的
     nano -w /etc/conf.d/hostname
     hostname="hostname"
-
     nano -w /etc/conf.d/net
     config_eth0="dhcp"
-
     cd /etc/init.d/
     ln -s net.lo net.eth0
     rc-update add net.eth0 default
-
     nano -w /etc/locale.gen
     nano -w /etc/env.d/02locale
     LANG="en_US.UTF-8"
