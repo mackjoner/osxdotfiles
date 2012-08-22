@@ -23,6 +23,7 @@ Tips
 
 #### N卡6屏问题
 在 `/etc/X11/Xorg.conf` 中 `Device`下加入：
+
     Option "ModeValidation" "NoTotalSizeCheck"
 
 ***
