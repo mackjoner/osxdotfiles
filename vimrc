@@ -33,6 +33,7 @@ Bundle 'tir_black'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'FuzzyFinder'
 
 filetype plugin indent on
 
@@ -433,6 +434,9 @@ let g:Powerline_stl_path_style = 'full'
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+" pyflakes settings
+let g:pyflakes_use_quickfix = 0
 
 "}}}
 "======================================================
