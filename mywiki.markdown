@@ -5,22 +5,26 @@ Tips
 ----
 
 #### synaptics touchpad settings
->use _synclient_
+>use **synclient**
 
     synclient -l
     synclient TapButton1=1
     synclient VertEdgeScroll=1
 
-
 #### ubuntu开发及打包环境
     sudo apt-get install build-essential devscripts ubuntu-dev-tools debhelper dh-make diff patch cdbs quilt gnupg fakeroot lintian pbuilder piuparts
 
 #### KDE下gvim，xterm最大化问题解决
-special window settings -> obey geometry restrictions -> focus -> no
+>special window settings -> obey geometry restrictions -> focus -> no
  
+
 #### git color output
     git config --global --add color.ui true
-    
+
+#### N卡6屏问题
+在 `/etc/X11/Xorg.conf` 中 `Device`下加入：
+    Option "ModeValidation" "NoTotalSizeCheck"
+
 ***
  
 Gentoo Simple Installation Guide
