@@ -5,8 +5,7 @@ Tips
 ----
 
 #### synaptics touchpad settings
-use *synclient*
-e.g. 
+>use *synclient*
     synclient -l
     synclient TapButton1=1
     synclient VertEdgeScroll=1
