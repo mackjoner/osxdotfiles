@@ -123,13 +123,6 @@ if (g:isGUI)
     hi CursorColumn guibg=#333333
     set guifont=Ubuntu\ Mono\ 12
     set guifontwide=Ubuntu\ Mono\ 12
-    " 不显示toolbar
-    "set guioptions-=T
-    " 不显示菜单栏
-    "set guioptions-=m
-    " 关闭左右滚动条
-    "set guioptions-=L
-    "set guioptions-=r
     set guioptions=-
 endif
 
