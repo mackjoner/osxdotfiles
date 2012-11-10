@@ -16,6 +16,9 @@ Tips
 
 #### KDE下gvim，xterm最大化问题解决
 >special window settings -> obey geometry restrictions -> focus -> no
+
+#### sudo and neocomplcache
+    Defaults always_set_home
  
 
 #### git color output
