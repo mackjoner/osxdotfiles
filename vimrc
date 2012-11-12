@@ -16,9 +16,8 @@ Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'genutils'
 Bundle 'xmledit'
-Bundle 'vimwiki'
+"Bundle 'vimwiki'
 Bundle 'pyflakes.vim'
-Bundle 'Markdown'
 Bundle 'indentpython.vim'
 Bundle 'surround.vim'
 Bundle 'matchit.zip'
@@ -36,6 +35,7 @@ Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplcache'
 Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
+Bundle 'tpope/vim-markdown'
 
 filetype plugin indent on
 
@@ -68,12 +68,11 @@ endif
 set background=dark
 set t_Co=256
 colorscheme molokai
-"set nocompatible    " 关闭兼容模式
 set display=lastline
-syntax enable       " 语法高亮
-"filetype plugin on  " 文件类型插件
+syntax enable
+"filetype plugin on
 "filetype indent on
-set shortmess=atI   " 去掉欢迎界面
+set shortmess=I   " do not give the intro message when staring vim
 autocmd BufEnter * :syntax sync fromstart
 set nu              " 显示行号
 set showcmd         " 显示命令
@@ -459,16 +458,16 @@ let xml_use_xhtml = 1
 "====================================================== 
 
 " Vimwiki配置
-let g:vimwiki_list = [{'path': '~/Dropbox/MyWiki/my_site/',
-            \ 'path-html': '~/Dropbox/MyWiki/my_site_html/',
-            \ 'html-header': '~/Dropbox/MyWiki/templates/header.tpl',
-            \ 'html-footer': '~/Dropbox/MyWiki/templates/footer.tpl'}]
-let g:vimwiki_camel_case=0
+"let g:vimwiki_list = [{'path': '~/Dropbox/MyWiki/my_site/',
+            "\ 'path-html': '~/Dropbox/MyWiki/my_site_html/',
+            "\ 'html-header': '~/Dropbox/MyWiki/templates/header.tpl',
+            "\ 'html-footer': '~/Dropbox/MyWiki/templates/footer.tpl'}]
+"let g:vimwiki_camel_case=0
 
-let wiki = {}
-let wiki.path = '~/Dropbox/MyWiki/my_site/'
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-let g:vimwiki_list = [wiki]
+"let wiki = {}
+"let wiki.path = '~/Dropbox/MyWiki/my_site/'
+"let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+"let g:vimwiki_list = [wiki]
 
 let g:showmarks_enable = 0
 
@@ -477,7 +476,7 @@ let g:indent_guides_guide_size = 1
 
 " powerline settings
 let g:Powerline_symbols = 'unicode'
-let g:Powerline_stl_path_style = 'full'
+"let g:Powerline_stl_path_style = 'short'
 
 " vim-javascript settings
 let g:html_indent_inctags = "html,body,head,tbody"
