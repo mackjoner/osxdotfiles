@@ -15,8 +15,8 @@ Bundle 'rosenfeld/conque-term'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'genutils'
-Bundle 'xmledit'
-"Bundle 'vimwiki'
+Bundle 'sukima/xmledit'
+Bundle 'vimwiki'
 Bundle 'pyflakes.vim'
 Bundle 'indentpython.vim'
 Bundle 'surround.vim'
@@ -36,6 +36,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
+Bundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 
