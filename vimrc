@@ -34,6 +34,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
+Bundle 'liuerfire/snipmate-snippets'
 Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
@@ -321,6 +322,8 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 
 " For snippet_complete marker.
 if has('conceal')
