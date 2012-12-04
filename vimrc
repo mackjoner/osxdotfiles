@@ -26,13 +26,14 @@ Bundle 'ShowMarks'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
 Bundle 'Solarized'
-Bundle 'liuerfire/my_snipMate.git'
+"Bundle 'liuerfire/my_snipMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet'
 Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
@@ -121,8 +122,8 @@ if (g:isGUI)
     set cursorline
     hi cursorline guibg=#333333
     hi CursorColumn guibg=#333333
-    set guifont=Ubuntu\ Mono\ 12
-    set guifontwide=Ubuntu\ Mono\ 12
+    set guifont=Monaco\ 10
+    set guifontwide=Monaco\ 10
     set guioptions=-
 endif
 
@@ -251,6 +252,7 @@ endfunction
 " 插件设置
 " {{{
 set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/gl
 set tags+=~/.vim/tags/qt4
 
 " 插件窗口的宽度，如TagList,NERD_tree等，自己设置
@@ -297,7 +299,7 @@ function! s:my_cr_function()
   return pumvisible() ? neocomplcache#close_popup() . "\<CR>" : "\<CR>"
 endfunction
 " <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
@@ -312,6 +314,19 @@ endif
 let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
+" neosnippet settings
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
 
 " ConqueTerm.vim
 let g:ConqueTerm_FastMode = 0        " enable fast mode
@@ -323,7 +338,7 @@ let g:ConqueTerm_CloseOnEnd = 1      " close buffer when program exits
 " <leader>tb 打开Tagbar窗口
 nmap <silent> <leader>tb :TagbarToggle<CR>
 let g:tagbar_left = 0
-let g:tagbar_width = 25
+let g:tagbar_width = 30
 "======================================================
 
 " taglist.vim
