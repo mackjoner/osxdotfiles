@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'bufexplorer.zip'
-Bundle 'taglist.vim'
+"Bundle 'taglist.vim'
 "Bundle 'AutoComplPop'
 Bundle 'majutsushi/tagbar'
 Bundle 'OmniCppComplete'
@@ -123,8 +123,8 @@ if (g:isGUI)
     set cursorline
     hi cursorline guibg=#333333
     hi CursorColumn guibg=#333333
-    set guifont=Monaco\ 10
-    set guifontwide=Monaco\ 10
+    set guifont=Source\ Code\ Pro\ 12
+    set guifontwide=Source\ Code\ Pro\ 12
     set guioptions=-
 endif
 
@@ -132,7 +132,7 @@ endif
 
 " 设置字符集编码，默认使用utf8
 set encoding=utf8
-set fileencodings=utf8,gb2312,gb18030,ucs-bom,latin1
+set fileencodings=utf8,gb2312,gb18030,ucs-bom,cp936
 
 "======================================================
 
@@ -339,26 +339,10 @@ let g:ConqueTerm_CloseOnEnd = 1      " close buffer when program exits
 
 " tagbar.vim
 " <leader>tb 打开Tagbar窗口
-nmap <silent> <leader>tb :TagbarToggle<CR>
+nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_width = 30
 "======================================================
-
-" taglist.vim
-" http://www.vim.org/scripts/script.php?script_id=273
-" <leader>t 打开TagList窗口，窗口在右边
-nmap <silent> <leader>t :TlistToggle<cr>
-"let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_Show_One_File = 0
-let Tlist_Exit_OnlyWindow = 1 
-let Tlist_Use_Right_Window = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 0
-let Tlist_WinWidth = s:PlugWinSize
-let Tlist_Auto_Open = 0
-let Tlist_Display_Prototype = 0
-"let Tlist_Close_On_Select = 1
-"====================================================== 
 
 
 " OmniCppComplete.vim
@@ -373,11 +357,6 @@ let OmniCpp_MayCompleteArrow = 1
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]     " 逗号分割的字符串
 let OmniCpp_MayCompleteScope = 1 
 let OmniCpp_SelectFirstItem = 2 
-"======================================================
-
-" NERD_commenter.vim
-" http://www.vim.org/scripts/script.php?script_id=1218
-" 无需配置
 "======================================================
 
 " NERD tree
