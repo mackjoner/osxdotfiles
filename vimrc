@@ -111,12 +111,12 @@ set mouse=n
 
 "}}}
 "====================================================== 
+set cursorline
+hi cursorline guibg=#666666
+hi CursorColumn guibg=#666666
 
 
 if (g:isGUI)
-    set cursorline
-    hi cursorline guibg=#333333
-    hi CursorColumn guibg=#333333
     set guifont=Source\ Code\ Pro\ 12
     set guifontwide=Source\ Code\ Pro\ 12
     set guioptions=-
