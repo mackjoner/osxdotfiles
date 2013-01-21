@@ -112,8 +112,8 @@ set mouse=n
 "}}}
 "====================================================== 
 set cursorline
-hi cursorline guibg=#666666
-hi CursorColumn guibg=#666666
+hi cursorline guibg=#333333
+hi CursorColumn guibg=#333333
 
 
 if (g:isGUI)
@@ -303,7 +303,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
 " Enable heavy omni completion.
