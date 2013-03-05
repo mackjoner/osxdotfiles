@@ -87,7 +87,7 @@ set magic
 set showmatch
 set nobackup
 set nowb
-"set noswapfile
+set noswapfile
 set lbr
 set ai
 set si
@@ -101,6 +101,8 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+
+autocmd FileType ruby setlocal et sta sw=2
 
 set vb t_vb=
 
@@ -117,8 +119,8 @@ hi CursorColumn guibg=#333333
 
 
 if (g:isGUI)
-    set guifont=Source\ Code\ Pro\ 12
-    set guifontwide=Source\ Code\ Pro\ 12
+    set guifont=Source\ Code\ Pro\ 10
+    set guifontwide=Source\ Code\ Pro\ 10
     set guioptions=-
 endif
 
@@ -338,9 +340,7 @@ if has('conceal')
 endif
 
 
-
 " tagbar.vim
-" <leader>tb 打开Tagbar窗口
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_width = 30
@@ -461,8 +461,6 @@ let xml_use_xhtml = 1
 "let wiki.path = '~/Dropbox/MyWiki/my_site/'
 "let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "let g:vimwiki_list = [wiki]
-
-let g:showmarks_enable = 0
 
 " indent guidess settings
 let g:indent_guides_guide_size = 1
