@@ -102,7 +102,8 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-autocmd FileType ruby setlocal et sta sw=2
+autocmd FileType ruby,eruby setlocal et sta sw=2
+autocmd FileType html,css,xml setlocal et sta sw=2
 
 set vb t_vb=
 
