@@ -39,6 +39,7 @@ Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
+Bundle 'molokai'
 
 filetype plugin indent on
 
@@ -103,7 +104,7 @@ set shiftwidth=4
 set tabstop=4
 
 autocmd FileType ruby,eruby setlocal et sta sw=2
-autocmd FileType html,css,xml setlocal et sta sw=2
+autocmd FileType html,htmldjango,css,xml setlocal et sta sw=2
 
 set vb t_vb=
 
@@ -120,8 +121,8 @@ hi CursorColumn guibg=#333333
 
 
 if (g:isGUI)
-    set guifont=Source\ Code\ Pro\ 10
-    set guifontwide=Source\ Code\ Pro\ 10
+    set guifont=Monaco\ 12
+    set guifontwide=Monaco\ 12
     set guioptions=-
 endif
 
