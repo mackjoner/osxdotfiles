@@ -25,7 +25,7 @@ Bundle 'matchit.zip'
 "Bundle 'ShowMarks'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
-"Bundle 'Solarized'
+Bundle 'Solarized'
 "Bundle 'liuerfire/my_snipMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'Lokaltog/vim-powerline'
@@ -121,8 +121,8 @@ hi CursorColumn guibg=#333333
 
 
 if (g:isGUI)
-    set guifont=Monaco\ 12
-    set guifontwide=Monaco\ 12
+    set guifont=Source\ Code\ Pro\ 10
+    set guifontwide=Source\ Code\ Pro\ 10
     set guioptions=-
 endif
 
@@ -345,7 +345,7 @@ endif
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
-let g:tagbar_width = 30
+let g:tagbar_width = 25
 "======================================================
 
 
