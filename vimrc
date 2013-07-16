@@ -40,6 +40,7 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
 Bundle 'molokai'
+Bundle 'uarun/vim-protobuf'
 
 filetype plugin indent on
 
@@ -52,7 +53,7 @@ autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 inoremap <leader>n <esc>
 
 " change directory automatically
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 
 
 if has("gui_running")
@@ -103,11 +104,7 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-autocmd FileType ruby,eruby setlocal et sta sw=2
-autocmd FileType html,htmldjango,css,xml setlocal et sta sw=2
-
 set vb t_vb=
-
 
 set history=400
 set autoread
@@ -121,8 +118,8 @@ hi CursorColumn guibg=#333333
 
 
 if (g:isGUI)
-    set guifont=Source\ Code\ Pro\ 10
-    set guifontwide=Source\ Code\ Pro\ 10
+    set guifont=Source\ Code\ Pro\ 12
+    set guifontwide=Source\ Code\ Pro\ 12
     set guioptions=-
 endif
 
@@ -150,9 +147,10 @@ set laststatus=2
 "====================================================== 
 
 au BufNewFile,BufRead *.t2t set ft=txt2tags
+au BufNewFile,BufRead *.j2 set ft=htmldjango
 
-"au FileType python set ft=python.django
-"au FileType html set ft=htmldjango.html
+autocmd FileType ruby,eruby setlocal et sta sw=2
+autocmd FileType html,htmldjango,css,xml setlocal et sta sw=2
 
 " Enable omni completion.
 autocmd FileType python set omnifunc=pythoncomplete#Complete
