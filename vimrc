@@ -10,7 +10,6 @@ Bundle 'bufexplorer.zip'
 "Bundle 'taglist.vim'
 "Bundle 'AutoComplPop'
 Bundle 'majutsushi/tagbar'
-Bundle 'OmniCppComplete'
 "Bundle 'rosenfeld/conque-term'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
@@ -150,7 +149,7 @@ au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
 
 autocmd FileType ruby,eruby setlocal et sta sw=2
-autocmd FileType html,htmldjango,css,xml setlocal et sta sw=2
+autocmd FileType html,htmldjango,xhtml,css,xml setlocal et sta sw=2
 
 " Enable omni completion.
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -474,8 +473,8 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-" pyflakes settings
-let g:pyflakes_use_quickfix = 0
 
+" syntastic settings
+let g:syntastic_python_python_exe = 'python2'
 "}}}
 "======================================================
