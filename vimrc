@@ -40,6 +40,7 @@ Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
 Bundle 'molokai'
 Bundle 'uarun/vim-protobuf'
+Bundle 'liuerfire/html5_django'
 
 filetype plugin indent on
 
