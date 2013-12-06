@@ -7,25 +7,18 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'bufexplorer.zip'
-"Bundle 'taglist.vim'
-"Bundle 'AutoComplPop'
 Bundle 'majutsushi/tagbar'
-"Bundle 'rosenfeld/conque-term'
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 Bundle 'genutils'
 Bundle 'sukima/xmledit'
 "Bundle 'vimwiki'
-"Bundle 'pyflakes.vim'
 Bundle 'indentpython.vim'
 Bundle 'surround.vim'
 Bundle 'matchit.zip'
-"Bundle 'Mark'
-"Bundle 'ShowMarks'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
 Bundle 'Solarized'
-"Bundle 'liuerfire/my_snipMate.git'
 Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
@@ -174,38 +167,16 @@ function! SetColorColumn()
     endif
 endfunction
 
-function! VisualSearch(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "<cr>"
-    else
-        execute "normal /" . l:pattern . "<cr>"
-    endif
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
-
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-
 "======================================================
-
 
 " {{{
 
 nn <C-J> :bn<cr>
 nn <C-K> :bp<cr>
 
-imap <C-e> <END>
-imap <C-a> <HOME>
-
 map <F2> "+y
 map <F3> "+x
 map <F4> "+p
-
 
 inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
 inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
@@ -255,8 +226,6 @@ set tags+=~/.vim/tags/qt4
 
 let s:PlugWinSize = 25
 
-" autocomplpop.vim 
-"let g:acp_behaviorKeywordLength = 4
 "====================================================== 
 
 " Note: This option must set it in .vimrc(_vimrc).
@@ -318,16 +287,6 @@ let g:neocomplete#sources#omni#input_patterns.c =
 let g:neocomplete#sources#omni#input_patterns.cpp =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
-
-" For smart TAB completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-"        \ <SID>check_back_space() ? "\<TAB>" :
-"        \ neocomplete#start_manual_complete()
-"  function! s:check_back_space() "{{{
-"    let col = col('.') - 1
-"    return !col || getline('.')[col - 1]  =~ '\s'
-"  endfunction"}}}
-
 " neosnippet settings
 let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 
@@ -337,26 +296,16 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)"
-" \: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ?
-" \ "\<Plug>(neosnippet_expand_or_jump)"
-" \: "\<TAB>"
-
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-
 
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_width = 25
 "======================================================
-
 
 " OmniCppComplete.vim
 " http://www.vim.org/scripts/script.php?script_id=1520
@@ -379,7 +328,6 @@ let NERDTreeWinPos = "left"
 let NERDTreeWinSize = s:PlugWinSize 
 nmap <leader>f :NERDTreeToggle<cr>
 "======================================================
-
 
 map <F5> :call Do_CsTag()<cr>
 function! Do_CsTag()
