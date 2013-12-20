@@ -19,7 +19,8 @@ Bundle 'matchit.zip'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
 Bundle 'Solarized'
-Bundle 'nathanaelkane/vim-indent-guides.git'
+"Bundle 'nathanaelkane/vim-indent-guides.git'
+Bundle 'Yggdroot/indentLine'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Lokaltog/vim-easymotion'
@@ -168,31 +169,6 @@ function! SetColorColumn()
 endfunction
 
 "======================================================
-
-" {{{
-
-nn <C-J> :bn<cr>
-nn <C-K> :bp<cr>
-
-map <F2> "+y
-map <F3> "+x
-map <F4> "+p
-
-inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
-inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
-inoremap <leader>3 {}<esc>:let leavechar="}"<cr>i
-inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
-inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
-inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
-
-imap <expr> <c-j>      pumvisible()?"\<C-N>":"\<C-X><C-O>"
-imap <expr> <c-k>      pumvisible()?"\<C-P>":"\<esc>"
-imap <C-]>             <C-X><C-]>
-imap <C-F>             <C-X><C-F>
-imap <C-D>             <C-X><C-D>
-imap <C-L>             <C-X><C-L> 
-"}}}
-"====================================================== 
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
@@ -435,13 +411,37 @@ let g:html_indent_style1 = "inc"
 
 
 " syntastic settings
-let g:syntastic_python_python_exe = 'python2'
+"let g:syntastic_python_python_exe = 'python2'
 "}}}
 "======================================================
 
+" {{{
+
+nn <C-J> :bn<cr>
+nn <C-K> :bp<cr>
+
+imap <C-e> <END>
+imap <C-a> <HOME>
+
+map <F2> "+y
+map <F3> "+x
+map <F4> "+p
+
+inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
+inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
+inoremap <leader>3 {}<esc>:let leavechar="}"<cr>i
+inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
+inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
+inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
+
+"}}}
+"====================================================== 
+
 function! AddVirtualEnv()
 python << EOF
-activate_this = '/home/liuerfire/py_env/py2/bin/activate_this.py'
+import os
+home_path = os.environ['HOME']
+activate_this = os.path.join(home_path, 'py_env/py2/bin/activate_this.py')
 execfile(activate_this, dict(__file__=activate_this))
 EOF
 endfunction
