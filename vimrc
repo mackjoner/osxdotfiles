@@ -47,7 +47,7 @@ autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 inoremap <leader>n <esc>
 
 " change directory automatically
-"autocmd BufEnter * silent! lcd %:p:h
+autocmd BufEnter * silent! lcd %:p:h
 
 
 if has("gui_running")
