@@ -47,7 +47,7 @@ autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 inoremap <leader>n <esc>
 
 " change directory automatically
-autocmd BufEnter * silent! lcd %:p:h
+"autocmd BufEnter * silent! lcd %:p:h
 
 
 if has("gui_running")
@@ -58,8 +58,6 @@ endif
 
 "======================================================
 " {{{
-"set list
-"set listchars=tab:>-,trail:-
 set background=dark
 set t_Co=256
 colorscheme molokai
@@ -206,8 +204,6 @@ let s:PlugWinSize = 25
 
 " Note: This option must set it in .vimrc(_vimrc).
 " NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
@@ -421,7 +417,7 @@ nn <C-J> :bn<cr>
 nn <C-K> :bp<cr>
 
 imap <C-e> <END>
-imap <C-a> <HOME>
+imap <C-a> <ESC>I
 
 map <F2> "+y
 map <F3> "+x
