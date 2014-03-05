@@ -6,15 +6,16 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'L9'
-Bundle 'bufexplorer.zip'
+Bundle 'jlanzarotta/bufexplorer'
 Bundle 'majutsushi/tagbar'
-Bundle 'The-NERD-Commenter'
-Bundle 'The-NERD-tree'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'genutils'
 Bundle 'sukima/xmledit'
 "Bundle 'vimwiki'
-Bundle 'indentpython.vim'
-Bundle 'surround.vim'
+"Bundle 'indentpython.vim'
+Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'tpope/vim-surround'
 Bundle 'matchit.zip'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
@@ -27,7 +28,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
-Bundle 'liuerfire/snipmate-snippets'
+"Bundle 'liuerfire/snipmate-snippets'
 Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
@@ -441,4 +442,4 @@ activate_this = os.path.join(home_path, 'py_env/py2/bin/activate_this.py')
 execfile(activate_this, dict(__file__=activate_this))
 EOF
 endfunction
-:call AddVirtualEnv()
+":call AddVirtualEnv()
