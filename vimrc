@@ -28,7 +28,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
-"Bundle 'liuerfire/snipmate-snippets'
+Bundle 'liuerfire/snipmate-snippets'
 Bundle 'fcitx.vim'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
@@ -36,6 +36,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'molokai'
 Bundle 'uarun/vim-protobuf'
 Bundle 'liuerfire/html5_django'
+Bundle 'kovisoft/slimv'
+Bundle 'wlangstroth/vim-racket'
 
 filetype plugin indent on
 
@@ -442,4 +444,4 @@ activate_this = os.path.join(home_path, 'py_env/py2/bin/activate_this.py')
 execfile(activate_this, dict(__file__=activate_this))
 EOF
 endfunction
-":call AddVirtualEnv()
+:call AddVirtualEnv()
