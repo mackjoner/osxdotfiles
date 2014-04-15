@@ -144,7 +144,7 @@ set laststatus=2
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
 
-autocmd FileType ruby,eruby setlocal et sta sw=2
+autocmd FileType ruby,eruby,scheme,racket setlocal et sta sw=2
 autocmd FileType html,htmldjango,xhtml,css,xml setlocal et sta sw=2
 
 " Enable omni completion.
@@ -412,6 +412,10 @@ let g:html_indent_style1 = "inc"
 " syntastic settings
 "let g:syntastic_python_python_exe = 'python2'
 "}}}
+"
+
+"slimv settings
+let g:slimv_impl = 'mit'
 "======================================================
 
 " {{{
