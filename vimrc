@@ -6,7 +6,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'L9'
-Bundle 'jlanzarotta/bufexplorer'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -22,7 +21,9 @@ Bundle 'FencView.vim'
 Bundle 'Solarized'
 "Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'Yggdroot/indentLine'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'FuzzyFinder'
@@ -108,8 +109,8 @@ set mouse=n
 "}}}
 "====================================================== 
 set cursorline
-hi cursorline guibg=#333333
-hi CursorColumn guibg=#333333
+"hi cursorline guibg=#333333
+"hi CursorColumn guibg=#333333
 
 
 if (g:isGUI)
@@ -174,25 +175,6 @@ endfunction
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
-
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
-
-    if bufnr("%") == l:currentBufNum
-        new
-    endif
-
-    if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
-    endif
-endfunction
 
 "======================================================
 
@@ -365,19 +347,6 @@ if has("cscope")
     nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
 endif
 
-
-" Buffers Explorer （need genutils.vim）
-" http://vim.sourceforge.net/scripts/script.php?script_id=42
-" http://www.vim.org/scripts/script.php?script_id=197
-let g:bufExplorerDefaultHelp=0       " Do not show default help.
-" let g:bufExplorerShowRelativePath=1  " Show relative paths.
-let g:bufExplorerSortBy='mru'        " Sort by most recently used.
-let g:bufExplorerSplitRight=0        " Split left.
-let g:bufExplorerSplitVertical=1     " Split vertically.
-let g:bufExplorerSplitVertSize = s:PlugWinSize  " Split width
-let g:bufExplorerUseCurrentWindow=1  " Open in new window.
-autocmd BufWinEnter \[Buf\ List\] setl nonumber
-nmap <silent> <Leader>b :BufExplorer<CR>
 "======================================================
 
 " xmledit settings
@@ -400,7 +369,7 @@ let xml_use_xhtml = 1
 let g:indent_guides_guide_size = 1
 
 " powerline settings
-let g:Powerline_symbols = 'unicode'
+"let g:Powerline_symbols = 'unicode'
 "let g:Powerline_stl_path_style = 'short'
 
 " vim-javascript settings
@@ -416,6 +385,21 @@ let g:html_indent_style1 = "inc"
 
 "slimv settings
 let g:slimv_impl = 'mit'
+
+"vim-airline settings
+let g:airline#extensions#tabline#enable = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_section_b = '%{getcwd()}'
+let g:airline_section_c = '%t'
+let g:airline_mode_map = {
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ }
 "======================================================
 
 " {{{
