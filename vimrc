@@ -75,7 +75,7 @@ set nu
 set showcmd
 set lz
 set hid
-set backspace=eol,start,indent 
+set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set incsearch
 set nohlsearch
@@ -90,7 +90,7 @@ set lbr
 set ai
 set si
 set cindent
-set wildmenu         
+set wildmenu
 set nofen
 set fdl=10
 set scrolloff=5
@@ -107,7 +107,7 @@ set autoread
 set mouse=n
 
 "}}}
-"====================================================== 
+"======================================================
 set cursorline
 "hi cursorline guibg=#333333
 "hi CursorColumn guibg=#333333
@@ -119,9 +119,9 @@ if (g:isGUI)
     set guioptions=-
 endif
 
-"======================================================  
+"======================================================
 
-"encoding 
+"encoding
 set encoding=utf8
 set fileencodings=utf8,gb2312,gb18030,ucs-bom,cp936
 
@@ -134,13 +134,13 @@ set laststatus=2
     "let curdir = substitute(getcwd(), $HOME, "~", "g")
     "return curdir
 "endfunction
-"set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\  
+"set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\
 
-"set statusline=[%n]\ %t%m%r%h%y\ \|\ %{CurDir()}\ \|%=%{&ff}\ \|\ 
-"set statusline+=%{&fenc!=''?&fenc:&enc}\ \|\ 
-"set statusline+=%l,%c\ %p%%\ \|\ 
+"set statusline=[%n]\ %t%m%r%h%y\ \|\ %{CurDir()}\ \|%=%{&ff}\ \|\
+"set statusline+=%{&fenc!=''?&fenc:&enc}\ \|\
+"set statusline+=%l,%c\ %p%%\ \|\
 
-"====================================================== 
+"======================================================
 
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
@@ -185,7 +185,7 @@ au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|
 
 let s:PlugWinSize = 25
 
-"====================================================== 
+"======================================================
 
 " Note: This option must set it in .vimrc(_vimrc).
 " NOT IN .gvimrc(_gvimrc)!
@@ -270,19 +270,19 @@ set completeopt=menu
 let OmniCpp_NamespaceSearch = 1
 let Omnicpp_GlobalScopeSearch = 1
 let Omnicpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 
+let OmniCpp_ShowPrototypeInAbbr = 1
 let OmniCpp_MayCompleteDot = 1
 let OmniCpp_MayCompleteArrow = 1
 let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]     " 逗号分割的字符串
-let OmniCpp_MayCompleteScope = 1 
-let OmniCpp_SelectFirstItem = 2 
+let OmniCpp_MayCompleteScope = 1
+let OmniCpp_SelectFirstItem = 2
 "======================================================
 
 " NERD tree
 " http://www.vim.org/scripts/script.php?script_id=1658
 let NERDTreeShowHidden = 1
 let NERDTreeWinPos = "left"
-let NERDTreeWinSize = s:PlugWinSize 
+let NERDTreeWinSize = s:PlugWinSize
 nmap <leader>f :NERDTreeToggle<cr>
 "======================================================
 
@@ -290,14 +290,14 @@ map <F5> :call Do_CsTag()<cr>
 function! Do_CsTag()
     let dir = getcwd()
 
-    if ( DeleteFile(dir, "tags") ) 
-        return 
+    if ( DeleteFile(dir, "tags") )
+        return
     endif
-    if ( DeleteFile(dir, "cscope.files") ) 
-        return 
+    if ( DeleteFile(dir, "cscope.files") )
+        return
     endif
-    if ( DeleteFile(dir, "cscope.out") ) 
-        return 
+    if ( DeleteFile(dir, "cscope.out") )
+        return
     endif
 
     if(executable('ctags'))
@@ -351,7 +351,7 @@ endif
 
 " xmledit settings
 let xml_use_xhtml = 1
-"====================================================== 
+"======================================================
 
 " Vimwiki
 "let g:vimwiki_list = [{'path': '~/Dropbox/MyWiki/my_site/',
@@ -422,7 +422,7 @@ inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
 inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 
 "}}}
-"====================================================== 
+"=====================================================
 
 function! AddVirtualEnv()
 python << EOF
