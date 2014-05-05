@@ -7,7 +7,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdtree'
+"Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'genutils'
 Bundle 'sukima/xmledit'
@@ -39,6 +39,7 @@ Bundle 'uarun/vim-protobuf'
 Bundle 'liuerfire/html5_django'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
+Bundle 'kien/ctrlp.vim'
 
 filetype plugin indent on
 
@@ -280,10 +281,10 @@ let OmniCpp_SelectFirstItem = 2
 
 " NERD tree
 " http://www.vim.org/scripts/script.php?script_id=1658
-let NERDTreeShowHidden = 1
-let NERDTreeWinPos = "left"
-let NERDTreeWinSize = s:PlugWinSize
-nmap <leader>f :NERDTreeToggle<cr>
+"let NERDTreeShowHidden = 1
+"let NERDTreeWinPos = "left"
+"let NERDTreeWinSize = s:PlugWinSize
+"nmap <leader>f :NERDTreeToggle<cr>
 "======================================================
 
 map <F5> :call Do_CsTag()<cr>
@@ -399,6 +400,12 @@ let g:airline_mode_map = {
   \ 'c'  : 'C',
   \ 'v'  : 'V',
   \ 'V'  : 'V',
+  \ }
+
+"ctrlp settings
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
   \ }
 "======================================================
 
