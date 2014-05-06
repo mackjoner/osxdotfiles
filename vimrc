@@ -287,7 +287,7 @@ let OmniCpp_SelectFirstItem = 2
 "nmap <leader>f :NERDTreeToggle<cr>
 "======================================================
 
-map <F5> :call Do_CsTag()<cr>
+map <F4> :call Do_CsTag()<cr>
 function! Do_CsTag()
     let dir = getcwd()
 
