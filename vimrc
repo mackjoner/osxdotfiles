@@ -265,27 +265,6 @@ let g:tagbar_left = 0
 let g:tagbar_width = 25
 "======================================================
 
-" OmniCppComplete.vim
-" http://www.vim.org/scripts/script.php?script_id=1520
-set completeopt=menu
-let OmniCpp_NamespaceSearch = 1
-let Omnicpp_GlobalScopeSearch = 1
-let Omnicpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1
-let OmniCpp_MayCompleteDot = 1
-let OmniCpp_MayCompleteArrow = 1
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]     " 逗号分割的字符串
-let OmniCpp_MayCompleteScope = 1
-let OmniCpp_SelectFirstItem = 2
-"======================================================
-
-" NERD tree
-" http://www.vim.org/scripts/script.php?script_id=1658
-"let NERDTreeShowHidden = 1
-"let NERDTreeWinPos = "left"
-"let NERDTreeWinSize = s:PlugWinSize
-"nmap <leader>f :NERDTreeToggle<cr>
-"======================================================
 
 map <F6> :call Do_CsTag()<cr>
 function! Do_CsTag()
