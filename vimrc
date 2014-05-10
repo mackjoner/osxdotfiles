@@ -40,6 +40,7 @@ Bundle 'liuerfire/html5_django'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
@@ -147,6 +148,8 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+
+autocmd FileType c,cpp nested NeoCompleteLock
 
 " highlight current column
 "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
@@ -378,6 +381,12 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
+
+
+"YouCompleteMe settings
+let g:ycm_filetype_whitelist = {'c': 1, 'cpp': 1}
+let g:ycm_global_ycm_extra_conf = '~/.config/ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 "======================================================
 
 " {{{
