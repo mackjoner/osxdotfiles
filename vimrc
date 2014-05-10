@@ -107,6 +107,8 @@ set history=400
 set autoread
 set mouse=n
 
+"set list
+set listchars=eol:$,tab:>-,nbsp:~,trail:%
 "}}}
 "======================================================
 set cursorline
