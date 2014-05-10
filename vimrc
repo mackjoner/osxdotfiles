@@ -227,9 +227,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
-"inoremap <expr><C-e>  neocomplete#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -238,14 +235,15 @@ endif
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
-"let g:neocomplete#sources#omni#input_patterns.php =
-"\ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:neocomplete#sources#omni#input_patterns.c =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 let g:neocomplete#sources#omni#input_patterns.cpp =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
 " neosnippet settings
+let g:neosnippet#disable_runtime_snippets = {
+            \ '_': 1,
+            \}
 let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 
 " Plugin key-mappings.
@@ -258,6 +256,10 @@ xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
+
+let g:snips_author = 'liuerfire'
+let g:snips_email = 'liuerfire@gmail.com'
+let g:snips_github = 'https://github.com/liuerfire'
 
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
