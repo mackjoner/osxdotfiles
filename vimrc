@@ -129,17 +129,6 @@ set fileencodings=utf8,gb2312,gb18030,ucs-bom,cp936
 "======================================================
 
 set laststatus=2
-"highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
-" 获取当前路径，将$HOME转化为~
-"function! CurDir()
-    "let curdir = substitute(getcwd(), $HOME, "~", "g")
-    "return curdir
-"endfunction
-"set statusline=[%n]\ %f%m%r%h\ \|\ \ pwd:\ %{CurDir()}\ \ \|%=\|\ %l,%c\ %p%%\ \|\ ascii=%b,hex=%b%{((&fenc==\"\")?\"\":\"\ \|\ \".&fenc)}\
-
-"set statusline=[%n]\ %t%m%r%h%y\ \|\ %{CurDir()}\ \|%=%{&ff}\ \|\
-"set statusline+=%{&fenc!=''?&fenc:&enc}\ \|\
-"set statusline+=%l,%c\ %p%%\ \|\
 
 "======================================================
 
