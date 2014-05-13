@@ -55,13 +55,6 @@ inoremap <leader>n <esc>
 " change directory automatically
 "autocmd BufEnter * silent! lcd %:p:h
 
-
-if has("gui_running")
-    let g:isGUI = 1
-else
-    let g:isGUI = 0
-endif
-
 "======================================================
 " {{{
 set background=dark
@@ -116,8 +109,7 @@ set cursorline
 "hi cursorline guibg=#333333
 "hi CursorColumn guibg=#333333
 
-
-if (g:isGUI)
+if has("gui_running")
     set guifont=Source\ Code\ Pro\ 12
     set guifontwide=Source\ Code\ Pro\ 12
     set guioptions=-
@@ -169,15 +161,12 @@ endfunction
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-
 "======================================================
 
 " {{{
 "set tags+=~/.vim/tags/cpp
 "set tags+=~/.vim/tags/gl
 "set tags+=~/.vim/tags/qt4
-
-let s:PlugWinSize = 25
 
 "======================================================
 
@@ -260,7 +249,6 @@ let g:tagbar_left = 0
 let g:tagbar_width = 25
 "======================================================
 
-
 map <F6> :call Do_CsTag()<cr>
 function! Do_CsTag()
     let dir = getcwd()
@@ -340,18 +328,10 @@ let xml_use_xhtml = 1
 "let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 "let g:vimwiki_list = [wiki]
 
-" indent guidess settings
-let g:indent_guides_guide_size = 1
-
-" powerline settings
-"let g:Powerline_symbols = 'unicode'
-"let g:Powerline_stl_path_style = 'short'
-
 " vim-javascript settings
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-
 
 " syntastic settings
 "let g:syntastic_python_python_exe = 'python2'
