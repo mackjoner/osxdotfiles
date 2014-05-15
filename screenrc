@@ -1,0 +1,5 @@
+term screen-256color
+startup_message off
+termcapinfo xterm* ti@:te@
+altscreen on
+vbell off
