@@ -31,7 +31,6 @@ set hid
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set incsearch
-"set nohlsearch
 set hlsearch
 set ignorecase
 set magic

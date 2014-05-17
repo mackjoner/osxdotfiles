@@ -48,7 +48,6 @@ let mapleader = ";"
 nmap <space> :
 
 map <silent> <leader>e :e $HOME/.vimrc<cr>
-autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 
 inoremap <leader>n <esc>
 
@@ -62,8 +61,6 @@ set t_Co=256
 colorscheme molokai
 set display=lastline
 syntax enable
-"filetype plugin on
-"filetype indent on
 set shortmess=I   " do not give the intro message when staring vim
 autocmd BufEnter * :syntax sync fromstart
 set nu
@@ -160,13 +157,6 @@ endfunction
 
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-"======================================================
-
-" {{{
-"set tags+=~/.vim/tags/cpp
-"set tags+=~/.vim/tags/gl
-"set tags+=~/.vim/tags/qt4
 
 "======================================================
 
