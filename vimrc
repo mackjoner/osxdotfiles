@@ -137,7 +137,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
-autocmd FileType c,cpp nested NeoCompleteLock
+"autocmd FileType c,cpp nested NeoCompleteLock
 
 " highlight current column
 "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
