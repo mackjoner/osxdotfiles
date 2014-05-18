@@ -40,7 +40,6 @@ Bundle 'liuerfire/html5_django'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on
 
@@ -352,11 +351,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
-
-"YouCompleteMe settings
-let g:ycm_filetype_whitelist = {'c': 1, 'cpp': 1}
-let g:ycm_global_ycm_extra_conf = '~/.config/ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
 "======================================================
 
 " {{{
