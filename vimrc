@@ -155,7 +155,7 @@ endfunction
 "======================================================
 
 set viminfo='100,:100,<100,s100
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe "norm '\""|else|exe "norm $"|endif|endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "======================================================
 
