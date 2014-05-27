@@ -11,7 +11,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'genutils'
 Bundle 'sukima/xmledit'
-"Bundle 'vimwiki'
+Bundle 'vimwiki/vimwiki'
 "Bundle 'indentpython.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'tpope/vim-surround'
@@ -306,16 +306,14 @@ let xml_use_xhtml = 1
 "======================================================
 
 " Vimwiki
-"let g:vimwiki_list = [{'path': '~/Dropbox/MyWiki/my_site/',
-            "\ 'path-html': '~/Dropbox/MyWiki/my_site_html/',
-            "\ 'html-header': '~/Dropbox/MyWiki/templates/header.tpl',
-            "\ 'html-footer': '~/Dropbox/MyWiki/templates/footer.tpl'}]
-"let g:vimwiki_camel_case=0
+let g:vimwiki_list = [{'path': '~/MyWiki/my_site/',
+            \ 'path-html': '~/MyWiki/my_site_html/',}]
+let g:vimwiki_camel_case=0
 
-"let wiki = {}
-"let wiki.path = '~/Dropbox/MyWiki/my_site/'
-"let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-"let g:vimwiki_list = [wiki]
+let wiki = {}
+let wiki.path = '~/MyWiki/my_site/'
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let g:vimwiki_list = [wiki]
 
 " vim-javascript settings
 let g:html_indent_inctags = "html,body,head,tbody"
