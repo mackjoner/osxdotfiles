@@ -346,7 +346,7 @@ let g:airline_mode_map = {
 "ctrlp settings
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ }
 
 "======================================================
