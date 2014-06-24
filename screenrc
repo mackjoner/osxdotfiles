@@ -3,3 +3,8 @@ startup_message off
 termcapinfo xterm* ti@:te@
 altscreen on
 vbell off
+shell bash
+startup_message off
+nethack on
+backtick 0 0 0 whoami # Set %0 to equal the output of whoami
+hardstatus alwayslastline "%{=b}%{G} %0`@%H: %{C}%w %=%{G}%D, %m/%d"
