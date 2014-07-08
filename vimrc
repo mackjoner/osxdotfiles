@@ -10,36 +10,32 @@ Bundle 'majutsushi/tagbar'
 "Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'genutils'
-Bundle 'sukima/xmledit'
 Bundle 'vimwiki/vimwiki'
-"Bundle 'indentpython.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'tpope/vim-surround'
 Bundle 'matchit.zip'
 Bundle 'a.vim'
 Bundle 'FencView.vim'
 Bundle 'Solarized'
-"Bundle 'nathanaelkane/vim-indent-guides.git'
 Bundle 'Yggdroot/indentLine'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'FuzzyFinder'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
-Bundle 'liuerfire/snipmate-snippets'
 "Bundle 'fcitx.vim'
 "Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomasr/molokai'
 Bundle 'uarun/vim-protobuf'
-Bundle 'liuerfire/html5_django'
+"Bundle 'liuerfire/html5_django'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'honza/vim-snippets'
 
 filetype plugin indent on
 
@@ -215,7 +211,7 @@ let g:neocomplete#sources#omni#input_patterns.cpp =
 let g:neosnippet#disable_runtime_snippets = {
             \ '_': 1,
             \}
-let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
