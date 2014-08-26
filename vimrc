@@ -33,7 +33,6 @@ Bundle 'uarun/vim-protobuf'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
 Bundle 'honza/vim-snippets'
 
 filetype plugin indent on
@@ -294,10 +293,6 @@ if has("cscope")
     nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
 endif
 
-"======================================================
-
-" xmledit settings
-let xml_use_xhtml = 1
 "======================================================
 
 " Vimwiki
