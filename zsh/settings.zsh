@@ -26,7 +26,6 @@ compinit
 
 #We set some options here
 #setopt extended_glob
-setopt correctall
 export HISTTIMEFORMAT='%F %T '
 #less 语法高亮需要安装source-highlight
 PAGER='less -X -M'
