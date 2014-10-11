@@ -42,6 +42,7 @@ set lbr
 set ai
 set si
 set cindent
+set paste
 set wildmenu
 set nofen
 set fdl=10
