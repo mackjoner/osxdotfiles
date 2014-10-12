@@ -5,12 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 Bundle 'gmarik/Vundle.vim'
-Bundle 'L9'
 Bundle 'majutsushi/tagbar'
-"Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'genutils'
-Bundle 'vimwiki/vimwiki'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'tpope/vim-surround'
 Bundle 'matchit.zip'
@@ -20,11 +16,9 @@ Bundle 'Solarized'
 Bundle 'Yggdroot/indentLine'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
-Bundle 'pangloss/vim-javascript'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
-"Bundle 'fcitx.vim'
 "Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
@@ -45,13 +39,12 @@ map <silent> <leader>e :e $HOME/.vimrc<cr>
 inoremap <leader>n <esc>
 
 " change directory automatically
-"autocmd BufEnter * silent! lcd %:p:h
+autocmd BufEnter * silent! lcd %:p:h
 
 "======================================================
 " {{{
 set background=dark
 set t_Co=256
-colorscheme molokai
 set display=lastline
 syntax enable
 set shortmess=I   " do not give the intro message when staring vim
@@ -64,20 +57,16 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set incsearch
 set nohlsearch
-"set hlsearch
 set ignorecase
 set magic
 set showmatch
 set nobackup
-set nowb
 set noswapfile
 set lbr
 set ai
 set si
 set cindent
 set wildmenu
-set nofen
-set fdl=10
 set scrolloff=5
 
 set expandtab
@@ -87,22 +76,19 @@ set tabstop=4
 
 set vb t_vb=
 
-set history=400
 set autoread
 set mouse=n
 
-"set list
 set listchars=eol:$,tab:>-,nbsp:~,trail:%
 "}}}
 "======================================================
 set cursorline
-"hi cursorline guibg=#333333
-"hi CursorColumn guibg=#333333
 
 if has("gui_running")
     set guifont=Source\ Code\ Pro\ 12
     set guifontwide=Source\ Code\ Pro\ 12
     set guioptions=-
+    colorscheme molokai
 endif
 
 "======================================================
@@ -131,7 +117,6 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
-"autocmd FileType c,cpp nested NeoCompleteLock
 
 " highlight current column
 "au BufWinEnter * let w:m2=matchadd('Underlined', '\%>' . 80 . 'v.\+', -1)
@@ -217,10 +202,6 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
 
 let g:snips_author = 'liuerfire'
 let g:snips_email = 'liuerfire@gmail.com'
@@ -294,26 +275,6 @@ if has("cscope")
 endif
 
 "======================================================
-
-" Vimwiki
-let g:vimwiki_list = [{'path': '~/MyWiki/my_site/',
-            \ 'path-html': '~/MyWiki/my_site_html/',}]
-let g:vimwiki_camel_case=0
-
-let wiki = {}
-let wiki.path = '~/MyWiki/my_site/'
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
-let g:vimwiki_list = [wiki]
-
-" vim-javascript settings
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
-" syntastic settings
-"let g:syntastic_python_python_exe = 'python2'
-"}}}
-"
 
 "slimv settings
 let g:slimv_impl = 'mit'
