@@ -38,9 +38,6 @@ map <silent> <leader>e :e $HOME/.vimrc<cr>
 
 inoremap <leader>n <esc>
 
-" change directory automatically
-autocmd BufEnter * silent! lcd %:p:h
-
 "======================================================
 " {{{
 set background=dark

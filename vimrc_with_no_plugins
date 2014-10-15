@@ -12,9 +12,6 @@ autocmd! bufwritepost *.vimrc source $HOME/.vimrc
 
 inoremap <leader>n <esc>
 
-" change directory automatically
-"autocmd BufEnter * silent! lcd %:p:h
-
 "======================================================
 " {{{
 set background=dark
