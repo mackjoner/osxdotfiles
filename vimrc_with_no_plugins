@@ -20,7 +20,6 @@ colorscheme desert
 set display=lastline
 syntax enable
 set shortmess=I   " do not give the intro message when staring vim
-autocmd BufEnter * :syntax sync fromstart
 set nu
 set showcmd
 set lz

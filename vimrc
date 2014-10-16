@@ -28,6 +28,7 @@ Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'kien/ctrlp.vim'
 Bundle 'honza/vim-snippets'
+Bundle 'othree/html5.vim'
 
 filetype plugin indent on
 
@@ -45,7 +46,6 @@ set t_Co=256
 set display=lastline
 syntax enable
 set shortmess=I   " do not give the intro message when staring vim
-autocmd BufEnter * :syntax sync fromstart
 set nu
 set showcmd
 set lz
