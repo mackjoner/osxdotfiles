@@ -280,7 +280,7 @@ let g:slimv_impl = 'mit'
 let g:airline#extensions#tabline#enable = 1
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
-let g:airline_section_b = '%{getcwd()}'
+let g:airline_section_b = '%f'
 let g:airline_section_c = '%t'
 let g:airline_mode_map = {
   \ 'n'  : 'N',
