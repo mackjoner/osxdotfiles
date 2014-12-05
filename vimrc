@@ -297,6 +297,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|pyc)$',
   \ }
 
+
+"syntastic settings
+let g:syntastic_python_python_exec = 'python3'
+
 "======================================================
 
 " {{{
