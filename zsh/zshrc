@@ -56,3 +56,4 @@ android_path=$HOME/AndroidSDK/tools/:$HOME/AndroidSDK/platform-tools/
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$android_path
 # export MANPATH="/usr/local/man:$MANPATH"
 export EDITOR='vim'
+export GOPATH=$HOME/Projects/go
