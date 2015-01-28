@@ -29,6 +29,7 @@ Bundle 'wlangstroth/vim-racket'
 Bundle 'kien/ctrlp.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'othree/html5.vim'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on
 
