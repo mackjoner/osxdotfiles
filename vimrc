@@ -291,6 +291,7 @@ let g:airline_mode_map = {
   \ 'v'  : 'V',
   \ 'V'  : 'V',
   \ }
+let g:airline_theme = 'badwolf'
 
 "ctrlp settings
 let g:ctrlp_custom_ignore = {
