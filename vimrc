@@ -30,6 +30,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
+Bundle 'rust-lang/rust.vim'
 
 filetype plugin indent on
 
@@ -81,6 +82,8 @@ set listchars=eol:$,tab:>-,nbsp:~,trail:%
 "}}}
 "======================================================
 set cursorline
+
+colorscheme solarized
 
 if has("gui_running")
     set guifont=Source\ Code\ Pro\ 12
