@@ -19,6 +19,8 @@ Bundle 'bling/vim-bufferline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/neocomplete'
 Bundle 'Shougo/neosnippet'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimfiler.vim'
 "Bundle 'chrisbra/NrrwRgn'
 Bundle 'tpope/vim-markdown'
 Bundle 'scrooloose/syntastic'
@@ -26,7 +28,6 @@ Bundle 'tomasr/molokai'
 Bundle 'uarun/vim-protobuf'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
-Bundle 'kien/ctrlp.vim'
 Bundle 'honza/vim-snippets'
 Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
@@ -296,16 +297,12 @@ let g:airline_mode_map = {
   \ }
 let g:airline_theme = 'badwolf'
 
-"ctrlp settings
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll|pyc)$',
-  \ }
 
-
-"syntastic settings
+" syntastic settings
 let g:syntastic_python_python_exec = 'python3'
 
+" vimfiler settings
+let g:vimfiler_as_default_explorer = 1
 "======================================================
 
 " {{{
@@ -331,13 +328,3 @@ inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 
 "}}}
 "=====================================================
-
-function! AddVirtualEnv()
-python << EOF
-import os
-home_path = os.environ['HOME']
-activate_this = os.path.join(home_path, 'py_env/py2/bin/activate_this.py')
-execfile(activate_this, dict(__file__=activate_this))
-EOF
-endfunction
-:call AddVirtualEnv()
