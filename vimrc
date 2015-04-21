@@ -32,6 +32,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
 Bundle 'rust-lang/rust.vim'
+Bundle 'cespare/vim-toml'
 
 filetype plugin indent on
 
