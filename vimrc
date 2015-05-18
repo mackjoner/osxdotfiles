@@ -289,6 +289,9 @@ let g:syntastic_python_python_exec = 'python3'
 
 " vimfiler settings
 let g:vimfiler_as_default_explorer = 1
+
+" Unite.vim settings
+nnoremap <C-p> :<C-u>Unite -start-insert file_rec<cr>
 "======================================================
 
 " {{{

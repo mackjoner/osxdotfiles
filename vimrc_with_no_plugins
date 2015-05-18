@@ -61,8 +61,7 @@ set listchars=eol:$,tab:>-,nbsp:~,trail:%
 "}}}
 "======================================================
 set cursorline
-"hi cursorline guibg=#333333
-"hi CursorColumn guibg=#333333
+set cursorcolumn
 
 "======================================================
 
