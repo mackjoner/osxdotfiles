@@ -111,7 +111,7 @@ set laststatus=2
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
 
-autocmd FileType ruby,eruby,scheme,racket setlocal et sta sw=2
+autocmd FileType ruby,eruby,scheme,racket,javascript,sql setlocal et sta sw=2
 autocmd FileType html,htmldjango,xhtml,css,xml setlocal et sta sw=2
 
 " Enable omni completion.
