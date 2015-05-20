@@ -17,7 +17,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
      sudo apt-get update
-     sudo apt-get dist-upgrade
-     sudo apt-get install build-essential
+     sudo apt-get -y dist-upgrade
+     sudo apt-get -y install build-essential
   SHELL
 end
