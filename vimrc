@@ -33,6 +33,7 @@ Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
 Bundle 'rust-lang/rust.vim'
 Bundle 'cespare/vim-toml'
+Bundle 'solarnz/thrift.vim'
 
 filetype plugin indent on
 
