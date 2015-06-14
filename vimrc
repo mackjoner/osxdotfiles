@@ -17,25 +17,23 @@ Bundle 'Yggdroot/indentLine'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'Shougo/neocomplete'
-Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler.vim'
 "Bundle 'chrisbra/NrrwRgn'
-Bundle 'tpope/vim-markdown'
+Bundle 'Raimondi/delimitMate'
+Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomasr/molokai'
-Bundle 'uarun/vim-protobuf'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
-Bundle 'honza/vim-snippets'
-Bundle 'othree/html5.vim'
 Bundle 'fatih/vim-go'
 Bundle 'rust-lang/rust.vim'
-Bundle 'cespare/vim-toml'
-Bundle 'solarnz/thrift.vim'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'rodjek/vim-puppet'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'edkolev/tmuxline.vim'
+Bundle 'sheerun/vim-polyglot'
+
 
 filetype plugin indent on
 
@@ -93,8 +91,8 @@ set cursorcolumn
 colorscheme solarized
 
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ 12
-    set guifontwide=Source\ Code\ Pro\ 12
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    set guifontwide=Source\ Code\ Pro\ for\ Powerline:h12
     set guioptions=-
     colorscheme molokai
 endif
@@ -130,22 +128,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 "======================================================
 
-" neosnippet settings
-let g:neosnippet#disable_runtime_snippets = {
-            \ '_': 1,
-            \}
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
-
-
-let g:snips_author = 'liuerfire'
-let g:snips_email = 'liuerfire@gmail.com'
-let g:snips_github = 'https://github.com/liuerfire'
 
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
@@ -153,66 +135,7 @@ let g:tagbar_left = 0
 let g:tagbar_width = 25
 "======================================================
 
-map <F6> :call Do_CsTag()<cr>
-function! Do_CsTag()
-    let dir = getcwd()
-
-    if ( DeleteFile(dir, "tags") )
-        return
-    endif
-    if ( DeleteFile(dir, "cscope.files") )
-        return
-    endif
-    if ( DeleteFile(dir, "cscope.out") )
-        return
-    endif
-
-    if(executable('ctags'))
-        silent! execute "!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q ."
-    endif
-    if(executable('cscope') && has("cscope") )
-        silent! execute "!find . -iname '*.[ch]' -o -name '*.cpp' > cscope.files"
-        silent! execute "!cscope -b"
-        execute "normal :"
-        if filereadable("cscope.out")
-            execute "cs add cscope.out"
-        endif
-    endif
-    execute "redr!"
-endfunction
-
-function! DeleteFile(dir, filename)
-    if filereadable(a:filename)
-        let ret = delete("./".a:filename)
-        if (ret != 0)
-            echohl WarningMsg | echo "Failed to delete ".a:filename | echohl None
-            return 1
-        else
-            return 0
-        endif
-    endif
-    return 0
-endfunction
-
-if has("cscope")
-    set csto=1
-    set cst
-    set nocsverb
-    if filereadable("cscope.out")
-        cs add cscope.out
-    endif
-    set csverb
-    " s: C语言符号  g: 定义     d: 这个函数调用的函数 c: 调用这个函数的函数
-    " t: 文本       e: egrep模式    f: 文件     i: include本文件的文件
-    nmap <leader>ss :cs find s <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-    nmap <leader>sg :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <leader>sc :cs find c <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-    nmap <leader>st :cs find t <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-    nmap <leader>se :cs find e <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-    nmap <leader>sf :cs find f <C-R>=expand("<cfile>")<CR><CR>:copen<CR>
-    nmap <leader>si :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>:copen<CR>
-    nmap <leader>sd :cs find d <C-R>=expand("<cword>")<CR><CR>:copen<CR>
-endif
+map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 
 "======================================================
 
@@ -220,30 +143,27 @@ endif
 let g:slimv_impl = 'mit'
 
 "vim-airline settings
-let g:airline#extensions#tabline#enable = 1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline_section_b = '%f'
-let g:airline_section_c = '%t'
-let g:airline_mode_map = {
-  \ 'n'  : 'N',
-  \ 'i'  : 'I',
-  \ 'R'  : 'R',
-  \ 'c'  : 'C',
-  \ 'v'  : 'V',
-  \ 'V'  : 'V',
-  \ }
-let g:airline_theme = 'badwolf'
-
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':p'
+if has("gui_running")
+    let g:airline_powerline_fonts = 1
+endif
+let g:airline_theme = 'ubaryd'
 
 " syntastic settings
-let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 " vimfiler settings
 let g:vimfiler_as_default_explorer = 1
 
 " Unite.vim settings
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec<cr>
+
+" UltiSnips settings
+let g:UltiSnipsExpandTrigger="<c-j>"
 "======================================================
 
 " {{{
