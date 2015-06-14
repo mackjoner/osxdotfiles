@@ -33,6 +33,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'sheerun/vim-polyglot'
+Bundle 'airblade/vim-gitgutter'
 
 
 filetype plugin indent on
@@ -145,9 +146,7 @@ let g:slimv_impl = 'mit'
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':p'
-if has("gui_running")
-    let g:airline_powerline_fonts = 1
-endif
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'ubaryd'
 
 " syntastic settings
