@@ -55,7 +55,8 @@ set autoread
 set mouse=n
 
 "set list
-set listchars=eol:$,tab:>-,nbsp:~,trail:%
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
 
 "}}}
 "======================================================

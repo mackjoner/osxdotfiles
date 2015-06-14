@@ -83,7 +83,8 @@ set vb t_vb=
 set autoread
 set mouse=n
 
-set listchars=eol:$,tab:>-,nbsp:~,trail:%
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
+set showbreak=↪
 "}}}
 "======================================================
 set cursorline
