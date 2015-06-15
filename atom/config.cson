@@ -1,0 +1,24 @@
+"*":
+  welcome:
+    showOnStartup: false
+  "autocomplete-plus":
+    confirmCompletion: "tab and enter"
+    navigateCompletions: "ctrl-p,ctrl-n"
+  core:
+    themes: [
+      "seti-ui"
+      "seti-syntax"
+    ]
+  editor:
+    invisibles: {}
+    fontFamily: "Source Code Pro"
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    fontSize: 14
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  "autocomplete-plus-python-jedi":
+    completeArguments: false
+  react: {}
