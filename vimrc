@@ -12,7 +12,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'matchit.zip'
 Bundle 'a.vim'
 Bundle 'mbbill/fencview'
-Bundle 'Solarized'
 Bundle 'Yggdroot/indentLine'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
@@ -23,7 +22,6 @@ Bundle 'Shougo/vimfiler.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
-Bundle 'tomasr/molokai'
 Bundle 'kovisoft/slimv'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'fatih/vim-go'
@@ -34,6 +32,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'edkolev/tmuxline.vim'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'flazz/vim-colorschemes'
 
 
 filetype plugin indent on
@@ -145,7 +144,7 @@ let g:slimv_impl = 'mit'
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':p'
+let g:airline#extensions#tabline#fnamemod = ':h'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'ubaryd'
 
