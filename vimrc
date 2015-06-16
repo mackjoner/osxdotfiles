@@ -161,6 +161,11 @@ let g:vimfiler_ignore_pattern = '\%('
             \ .'\.pyc$\|'
             \ .'^__pycache__$\|'
             \ .'\.egg-info$\)'
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
 
 " Unite.vim settings
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec<cr>
