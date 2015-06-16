@@ -91,10 +91,10 @@ set cursorcolumn
 colorscheme solarized
 
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
-    set guifontwide=Source\ Code\ Pro\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    set guifontwide=Source\ Code\ Pro\ for\ Powerline:h14
     set guioptions=-
-    colorscheme molokai
+    colorscheme base16-atelierdune
 endif
 
 "======================================================
@@ -156,6 +156,11 @@ let g:syntastic_warning_symbol='⚠'
 
 " vimfiler settings
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_ignore_pattern = '\%('
+            \ .'^\..*\|'
+            \ .'\.pyc$\|'
+            \ .'^__pycache__$\|'
+            \ .'\.egg-info$\)'
 
 " Unite.vim settings
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec<cr>
