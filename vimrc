@@ -176,8 +176,8 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 
 " {{{
 
-nn <C-J> :bn<cr>
-nn <C-K> :bp<cr>
+nn <C-J> :bp<cr>
+nn <C-K> :bn<cr>
 
 imap <C-e> <END>
 imap <C-a> <ESC>I
