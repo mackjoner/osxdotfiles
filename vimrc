@@ -14,7 +14,6 @@ Bundle 'a.vim'
 Bundle 'mbbill/fencview'
 Bundle 'Yggdroot/indentLine'
 Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler.vim'
@@ -144,7 +143,6 @@ let g:slimv_impl = 'mit'
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':h'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'ubaryd'
 
