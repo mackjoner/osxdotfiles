@@ -17,6 +17,7 @@ Bundle 'bling/vim-airline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimfiler.vim'
+Bundle 'Shougo/vimproc.vim'
 "Bundle 'chrisbra/NrrwRgn'
 Bundle 'Raimondi/delimitMate'
 Bundle 'tpope/vim-fugitive'
@@ -166,7 +167,7 @@ let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
 " Unite.vim settings
-nnoremap <C-p> :<C-u>Unite -start-insert file_rec<cr>
+nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async:!<CR>
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
