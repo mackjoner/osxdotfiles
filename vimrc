@@ -33,6 +33,7 @@ Bundle 'edkolev/tmuxline.vim'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'chriskempson/base16-vim'
 
 
 filetype plugin indent on
@@ -94,7 +95,7 @@ if has("gui_running")
     set guifont=Source\ Code\ Pro\ for\ Powerline:h14
     set guifontwide=Source\ Code\ Pro\ for\ Powerline:h14
     set guioptions=-
-    colorscheme base16-atelierdune
+    colorscheme base16-colors
 endif
 
 "======================================================
