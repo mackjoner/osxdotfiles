@@ -33,6 +33,7 @@ Bundle 'sheerun/vim-polyglot'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'chriskempson/base16-vim'
+Bundle 'othree/javascript-libraries-syntax.vim'
 
 
 filetype plugin indent on
@@ -179,6 +180,9 @@ endif
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
+
+" javascript-libraries-syntax.vim settings
+let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
 "======================================================
 
 " {{{
