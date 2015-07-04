@@ -2,7 +2,7 @@
 import os.path
 
 HOME = os.path.expanduser('~')
-NOTEBOOK_DIR = HOME + "/Documents/notebook"
+NOTEBOOK_DIR = HOME + "/Dropbox/notebook"
 
 if not os.path.exists(NOTEBOOK_DIR):
     os.makedirs(NOTEBOOK_DIR)
