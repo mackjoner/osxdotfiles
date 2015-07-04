@@ -29,6 +29,7 @@ Bundle 'rust-lang/rust.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+Bundle 'edkolev/tmuxline.vim'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'flazz/vim-colorschemes'
@@ -183,6 +184,9 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 
 " javascript-libraries-syntax.vim settings
 let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
+
+" YouCompleteMe settings
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 "======================================================
 
 " {{{
