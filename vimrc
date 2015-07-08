@@ -35,6 +35,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'chriskempson/base16-vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'hdima/python-syntax'
 
 
 filetype plugin indent on
@@ -187,6 +188,9 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
 
 " YouCompleteMe settings
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" python-syntax settings
+let python_highlight_all = 1
 "======================================================
 
 " {{{
