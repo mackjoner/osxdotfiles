@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'NLKNguyen/papercolor-theme'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'hynek/vim-python-pep8-indent'
@@ -91,13 +92,12 @@ set showbreak=↪
 set cursorline
 set cursorcolumn
 
-colorscheme badwolf
+colorscheme PaperColor-Dark
 
 if has("gui_running")
     set guifont=Source\ Code\ Pro\ for\ Powerline:h14
     set guifontwide=Source\ Code\ Pro\ for\ Powerline:h14
     set guioptions=-
-    colorscheme base16-colors
 endif
 
 "======================================================
@@ -116,9 +116,8 @@ au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
 
 autocmd FileType ruby,eruby,scheme,racket,javascript,sql setlocal et sta sw=2
-autocmd FileType html,htmldjango,xhtml,css,xml setlocal et sta sw=2
+autocmd FileType html,htmldjango,xhtml,css,xml,yaml setlocal et sta sw=2
 
-" Enable omni completion.
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
