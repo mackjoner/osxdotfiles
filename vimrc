@@ -37,7 +37,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'chriskempson/base16-vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'hdima/python-syntax'
-
+Bundle 'luochen1990/rainbow'
 
 filetype plugin indent on
 
@@ -190,6 +190,9 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " python-syntax settings
 let python_highlight_all = 1
+
+" Rainbow settings
+let g:rainbow_active = 1
 "======================================================
 
 " {{{
@@ -203,6 +206,9 @@ imap <C-a> <ESC>I
 map <F2> "+y
 map <F3> "+x
 map <F4> "+p
+
+nnoremap j gj
+nnoremap k gk
 
 inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
 inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
