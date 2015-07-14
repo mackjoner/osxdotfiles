@@ -154,6 +154,7 @@ let g:syntastic_check_on_open=0
 let g:syntastic_check_on_wq=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_html_checkers = ['']
 
 " vimfiler settings
 let g:vimfiler_as_default_explorer = 1
