@@ -92,7 +92,7 @@ set showbreak=↪
 set cursorline
 set cursorcolumn
 
-colorscheme PaperColor-Dark
+colorscheme PaperColor
 
 if has("gui_running")
     set guifont=Source\ Code\ Pro\ for\ Powerline:h14
