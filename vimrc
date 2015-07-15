@@ -171,6 +171,8 @@ let g:vimfiler_marked_file_icon = '*'
 
 " Unite.vim settings
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async:!<CR>
+nnoremap <leader>ub :<C-u>Unite buffer<CR>
+nnoremap <leader>ug :<C-u>Unite grep<CR>
 if executable('ag')
     let g:unite_source_rec_async_command = 'ag --follow --nogroup -g ""'
     let g:unite_source_grep_command = 'ag'
