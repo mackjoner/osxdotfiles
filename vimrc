@@ -1,45 +1,69 @@
-set nocompatible
-filetype off
+if has('vim_starting')
+    if &compatible
+        set nocompatible               " Be iMproved
+    endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-Bundle 'gmarik/vundle'
-Bundle 'NLKNguyen/papercolor-theme'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'tpope/vim-surround'
-Bundle 'matchit.zip'
-Bundle 'a.vim'
-Bundle 'mbbill/fencview'
-Bundle 'Yggdroot/indentLine'
-Bundle 'bling/vim-airline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimfiler.vim'
-Bundle 'Shougo/vimproc.vim'
-"Bundle 'chrisbra/NrrwRgn'
-Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'kovisoft/slimv'
-Bundle 'wlangstroth/vim-racket'
-Bundle 'fatih/vim-go'
-Bundle 'rust-lang/rust.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'edkolev/tmuxline.vim'
-Bundle 'sheerun/vim-polyglot'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'chriskempson/base16-vim'
-Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'hdima/python-syntax'
-Bundle 'luochen1990/rainbow'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'matchit.zip'
+NeoBundle 'a.vim'
+NeoBundle 'mbbill/fencview'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\    },
+\ }
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'kovisoft/slimv'
+NeoBundle 'wlangstroth/vim-racket'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'hdima/python-syntax'
+NeoBundle 'luochen1990/rainbow'
+
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
 
 let mapleader = ";"
 nmap <space> :
@@ -74,6 +98,7 @@ set si
 set cindent
 set wildmenu
 set scrolloff=5
+set synmaxcol=128
 
 set expandtab
 set smarttab
@@ -87,10 +112,10 @@ set mouse=n
 
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
-"}}}
-"======================================================
 set cursorline
 set cursorcolumn
+"}}}
+"======================================================
 
 colorscheme PaperColor
 
@@ -166,8 +191,9 @@ let g:vimfiler_ignore_pattern = '\%('
 let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = '-'
-let g:vimfiler_marked_file_icon = '*'
+let g:vimfiler_file_icon = ' '
+let g:vimfiler_readonly_file_icon = '✗'
+let g:vimfiler_marked_file_icon = '✓'
 
 " Unite.vim settings
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async:!<CR>
