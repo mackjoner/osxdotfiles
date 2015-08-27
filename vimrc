@@ -114,6 +114,7 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 set cursorline
 set cursorcolumn
+
 "}}}
 "======================================================
 
@@ -200,6 +201,13 @@ nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <leader>ub :<C-u>Unite buffer<CR>
 nnoremap <leader>ug :<C-u>Unite grep<CR>
 let g:unite_source_grep_max_candidates = 200
+let dot = '\%(^\|/\)\.'
+let dirs = '\%(^\|/\)\%(' . join(
+            \ ['node_modules', 'bower_components', 'dist'], '\|')
+            \ . '\)\%($\|/\)'
+let files = join(['\.pyc\%($\)'], '\|')
+let pattern = join([dot, dirs, files], '\|')
+call unite#custom#source('file,file_rec,file_rec/async,grep', 'ignore_pattern', pattern)
 
 if executable('ag')
   " Use ag in unite grep source.
