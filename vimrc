@@ -98,7 +98,7 @@ set si
 set cindent
 set wildmenu
 set scrolloff=5
-set synmaxcol=128
+"set synmaxcol=128
 
 set expandtab
 set smarttab
@@ -118,11 +118,12 @@ set cursorcolumn
 "}}}
 "======================================================
 
-colorscheme PaperColor
+let base16colorspace=256
+colorscheme base16-summerfruit
 
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-    set guifontwide=Source\ Code\ Pro\ for\ Powerline:h14
+    set guifont=Sauce\ Code\ Powerline:h14
+    set guifontwide=Sauce\ Code\ Powerline:h14
     set guioptions=-
 endif
 
@@ -173,11 +174,16 @@ let g:slimv_impl = 'mit'
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'ubaryd'
 
 " syntastic settings
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=1
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_html_checkers = ['']
@@ -203,7 +209,7 @@ nnoremap <leader>ug :<C-u>Unite grep<CR>
 let g:unite_source_grep_max_candidates = 200
 let dot = '\%(^\|/\)\.'
 let dirs = '\%(^\|/\)\%(' . join(
-            \ ['node_modules', 'bower_components', 'dist'], '\|')
+            \ ['node_modules', 'bower_components', 'dist', 'tmpdir', 'venv'], '\|')
             \ . '\)\%($\|/\)'
 let files = join(['\.pyc\%($\)'], '\|')
 let pattern = join([dot, dirs, files], '\|')
@@ -244,6 +250,8 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
 
 " YouCompleteMe settings
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_rust_src_path = '/Users/liuerfire/OpenSource/rust/src'
+let g:ycm_global_ycm_extra_conf = '/Users/liuerfire/.config/ycm_extra_conf.py'
 
 " python-syntax settings
 let python_highlight_all = 1
