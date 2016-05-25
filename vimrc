@@ -1,69 +1,47 @@
-if has('vim_starting')
-    if &compatible
-        set nocompatible               " Be iMproved
-    endif
-
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'Yggdroot/indentLine'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/syntastic'
+Plug 'rust-lang/rust.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
+Plug 'edkolev/tmuxline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'flazz/vim-colorschemes'
+Plug 'chriskempson/base16-vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'luochen1990/rainbow'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'scrooloose/syntastic'
+Plug 'wlangstroth/vim-racket'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-NeoBundle 'NLKNguyen/papercolor-theme'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'matchit.zip'
-NeoBundle 'a.vim'
-NeoBundle 'mbbill/fencview'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\    },
-\ }
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'kovisoft/slimv'
-NeoBundle 'wlangstroth/vim-racket'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'chriskempson/base16-vim'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'hdima/python-syntax'
-NeoBundle 'luochen1990/rainbow'
-
-call neobundle#end()
-
-" Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
 
 let mapleader = ";"
 nmap <space> :
@@ -156,7 +134,8 @@ set viminfo='100,:100,<100,s100
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "======================================================
-
+" fzf-vim
+nnoremap <C-p> :FZF<CR>
 
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
@@ -167,9 +146,6 @@ let g:tagbar_width = 25
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 
 "======================================================
-
-"slimv settings
-let g:slimv_impl = 'mit'
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -187,60 +163,6 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_html_checkers = ['']
-
-" vimfiler settings
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_ignore_pattern = '\%('
-            \ .'^\..*\|'
-            \ .'\.pyc$\|'
-            \ .'^__pycache__$\|'
-            \ .'\.egg-info$\)'
-let g:vimfiler_tree_leaf_icon = ' '
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = ' '
-let g:vimfiler_readonly_file_icon = '✗'
-let g:vimfiler_marked_file_icon = '✓'
-
-" Unite.vim settings
-nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async:!<CR>
-nnoremap <leader>ub :<C-u>Unite buffer<CR>
-nnoremap <leader>ug :<C-u>Unite grep<CR>
-let g:unite_source_grep_max_candidates = 200
-let dot = '\%(^\|/\)\.'
-let dirs = '\%(^\|/\)\%(' . join(
-            \ ['node_modules', 'bower_components', 'dist', 'tmpdir', 'venv'], '\|')
-            \ . '\)\%($\|/\)'
-let files = join(['\.pyc\%($\)'], '\|')
-let pattern = join([dot, dirs, files], '\|')
-call unite#custom#source('file,file_rec,file_rec/async,grep', 'ignore_pattern', pattern)
-
-if executable('ag')
-  " Use ag in unite grep source.
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts =
-  \ '-i --vimgrep --hidden --ignore ' .
-  \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-  let g:unite_source_grep_recursive_opt = ''
-elseif executable('pt')
-  " Use pt in unite grep source.
-  " https://github.com/monochromegane/the_platinum_searcher
-  let g:unite_source_grep_command = 'pt'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-  let g:unite_source_grep_recursive_opt = ''
-elseif executable('ack-grep')
-  " Use ack in unite grep source.
-  let g:unite_source_grep_command = 'ack-grep'
-  let g:unite_source_grep_default_opts =
-  \ '-i --no-heading --no-color -k -H'
-  let g:unite_source_grep_recursive_opt = ''
-elseif executable('jvgrep')
-  " For jvgrep.
-  let g:unite_source_grep_command = 'jvgrep'
-  let g:unite_source_grep_default_opts =
-  \ '-i --exclude ''\.(git|svn|hg|bzr)'''
-  let g:unite_source_grep_recursive_opt = '-R'
-endif
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
