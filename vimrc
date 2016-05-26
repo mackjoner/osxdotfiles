@@ -15,15 +15,11 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
-Plug 'Shougo/vimproc.vim'
 Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/syntastic'
-Plug 'rust-lang/rust.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
 Plug 'edkolev/tmuxline.vim'
 Plug 'sheerun/vim-polyglot'
@@ -31,61 +27,41 @@ Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'scrooloose/syntastic'
 Plug 'wlangstroth/vim-racket'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+"Plug 'neomake/neomake'
 call plug#end()
-
-filetype plugin indent on
 
 let mapleader = ";"
 nmap <space> :
 
 map <silent> <leader>e :e $HOME/.vimrc<cr>
 
-inoremap <leader>n <esc>
-
 "======================================================
 " {{{
 set background=dark
-set t_Co=256
-set display=lastline
-syntax enable
-set shortmess=I   " do not give the intro message when staring vim
 set nu
 set showcmd
 set lz
 set hid
-set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-set incsearch
-set nohlsearch
 set ignorecase
 set magic
 set showmatch
 set nobackup
 set noswapfile
 set lbr
-set ai
-set si
 set cindent
-set wildmenu
-set scrolloff=5
-"set synmaxcol=128
 
 set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
 
-set vb t_vb=
-
-set autoread
 set mouse=n
 
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
@@ -99,22 +75,6 @@ set cursorcolumn
 let base16colorspace=256
 colorscheme base16-summerfruit
 
-if has("gui_running")
-    set guifont=Sauce\ Code\ Powerline:h14
-    set guifontwide=Sauce\ Code\ Powerline:h14
-    set guioptions=-
-endif
-
-"======================================================
-
-"encoding
-set encoding=utf8
-set fileencodings=utf8,gb2312,gb18030,ucs-bom,cp936
-
-"======================================================
-
-set laststatus=2
-
 "======================================================
 
 au BufNewFile,BufRead *.t2t set ft=txt2tags
@@ -122,7 +82,6 @@ au BufNewFile,BufRead *.j2 set ft=htmldjango
 
 autocmd FileType ruby,eruby,scheme,racket,javascript,sql setlocal et sta sw=2
 autocmd FileType html,htmldjango,xhtml,css,xml,yaml setlocal et sta sw=2
-
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
