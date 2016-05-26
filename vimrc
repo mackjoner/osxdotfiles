@@ -20,7 +20,7 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
 Plug 'edkolev/tmuxline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
@@ -92,6 +92,8 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 set viminfo='100,:100,<100,s100
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
+map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
+
 "======================================================
 " fzf-vim
 nnoremap <C-p> :FZF<CR>
@@ -100,11 +102,14 @@ nnoremap <C-p> :FZF<CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_width = 25
-"======================================================
 
-map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
-
-"======================================================
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
