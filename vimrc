@@ -10,11 +10,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
@@ -95,6 +97,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 
 "======================================================
+
 " fzf-vim
 nnoremap <C-p> :FZF<CR>
 
