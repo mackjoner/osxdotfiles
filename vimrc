@@ -55,6 +55,7 @@ set nobackup
 set noswapfile
 set lbr
 set cindent
+set nohlsearch
 
 set expandtab
 set smarttab
@@ -138,6 +139,8 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 let g:ycm_rust_src_path = '/Users/liuerfire/OpenSource/rust/src'
 let g:ycm_global_ycm_extra_conf = '/Users/liuerfire/.config/ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " python-syntax settings
 let python_highlight_all = 1
