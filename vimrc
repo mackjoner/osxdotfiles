@@ -35,13 +35,10 @@ Plug 'rust-lang/rust.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'neomake/neomake'
 call plug#end()
 
 let mapleader = ";"
 nmap <space> :
-
-map <silent> <leader>e :e $HOME/.vimrc<cr>
 
 "======================================================
 " {{{
