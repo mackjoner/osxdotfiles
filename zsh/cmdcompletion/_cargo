@@ -1,0 +1,29 @@
+#compdef cargo
+#autoload
+
+
+local -a _1st_arguments
+_1st_arguments=(
+    "build:Compile the current project"
+    "clean:Remove the target directory"
+    "doc:Build this project's and its dependencies' documentation"
+    "new:Create a new cargo project"
+    "init:Create a new cargo project in an existing directory"
+    "run:Build and execute src/main.rs"
+    "test:Run the tests"
+    "bench:Run the benchmarks"
+    "update:Update dependencies listed in Cargo.lock"
+    "search:Search registry for crates"
+    "publish:Package and upload this project to the registry"
+    "install:Install a Rust binary"
+)
+
+local expl
+
+_arguments \
+    '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1)); then
+    _describe -t commands "cargo subcommand" _1st_arguments
+    return
+fi
