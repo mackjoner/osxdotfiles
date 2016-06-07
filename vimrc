@@ -32,7 +32,6 @@ Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
-Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
