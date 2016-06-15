@@ -35,5 +35,7 @@ _fzf_compgen_path() {
     ag -g "" "$1"
 }
 
+export FZF_DEFAULT_COMMAND='ag -g ""'
+
 [ -f ~/.zsh_private ] && source ~/.zsh_private
 
