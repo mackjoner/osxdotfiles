@@ -18,7 +18,7 @@ ZSH_THEME_HG_PROMPT_CLEAN=" %{$fg[cyan]%}o"
 
 # Prompt format: \n # USER at MACHINE in DIRECTORY on git:BRANCH STATE [TIME] \n $
 PROMPT="%{$terminfo[bold]$fg[blue]%}%{$reset_color%}\
-%{$fg[cyan]%}%n\
+%{$fg[yellow]%}%n\
 %{$fg[white]%} at \
 %{$fg[green]%}$HOST \
 %{$fg[white]%}in \
