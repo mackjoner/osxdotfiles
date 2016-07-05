@@ -39,6 +39,12 @@ call plug#end()
 let mapleader = ";"
 nmap <space> :
 
+if !has('nvim')
+    nmap <leader>e :e ~/.vimrc<cr>
+else
+    nmap <leader>e :e ~/.config/nvim/init.vim<cr>
+endif
+
 "======================================================
 " {{{
 set background=dark
@@ -127,7 +133,6 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
-let g:syntastic_html_checkers = ['']
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
