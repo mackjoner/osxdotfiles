@@ -97,6 +97,7 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 
 " fzf-vim
 nnoremap <C-p> :FZF<CR>
+nnoremap <leader>ag :Ag <C-R><C-W><CR>
 
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
