@@ -26,7 +26,7 @@ zplug load --verbose
 export CLICOLOR=1
 export PYTHONSTARTUP=$HOME/.config/pythonstartup.py
 
-BASE16_SHELL="$HOME/OpenSource/base16-shell/base16-summerfruit.dark.sh"
+BASE16_SHELL="$HOME/OpenSource/base16-shell/scripts/base16-summerfruit.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

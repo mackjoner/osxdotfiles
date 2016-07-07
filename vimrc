@@ -72,13 +72,13 @@ set mouse=n
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 
 "}}}
 "======================================================
 
 let base16colorspace=256
-colorscheme base16-summerfruit
+colorscheme base16-isotope
 
 "======================================================
 
@@ -121,6 +121,7 @@ let g:go_highlight_build_constraints = 1
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='papercolor'
 
 " syntastic settings
 set statusline+=%#warningmsg#
