@@ -86,7 +86,7 @@ au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
 
 autocmd FileType ruby,eruby,scheme,racket,javascript,sql setlocal et sta sw=2
-autocmd FileType html,htmldjango,xhtml,css,xml,yaml setlocal et sta sw=2
+autocmd FileType html,htmldjango,xhtml,css,scss,xml,yaml setlocal et sta sw=2
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -134,6 +134,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
+let g:syntastic_python_checkers=['python']
+let g:syntastic_html_checkers=['']
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
