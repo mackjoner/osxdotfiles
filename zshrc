@@ -5,8 +5,6 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
-zplug "lib/git", from:oh-my-zsh
-zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/mercurial", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh

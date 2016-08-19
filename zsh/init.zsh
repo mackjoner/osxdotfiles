@@ -1,4 +1,6 @@
 liuerfire_path="`dirname $0`"
+source $liuerfire_path/git.zsh
+source $liuerfire_path/theme-and-appearance.zsh
 source $liuerfire_path/completion.zsh
 source $liuerfire_path/aliases.zsh
 source $liuerfire_path/liuerfire.zsh-theme
