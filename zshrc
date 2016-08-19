@@ -22,6 +22,7 @@ fi
 zplug load --verbose
 
 export CLICOLOR=1
+export GPG_TTY=$(tty)
 export PYTHONSTARTUP=$HOME/.config/pythonstartup.py
 
 BASE16_SHELL="$HOME/OpenSource/base16-shell/scripts/base16-summerfruit.sh"
