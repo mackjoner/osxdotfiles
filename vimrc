@@ -17,7 +17,7 @@ Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
@@ -26,7 +26,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-c
 Plug 'edkolev/tmuxline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
 Plug 'wlangstroth/vim-racket'
@@ -34,6 +33,8 @@ Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'neomake/neomake'
 call plug#end()
 
 let mapleader = ";"
@@ -45,6 +46,11 @@ else
     nmap <leader>e :e ~/.config/nvim/init.vim<cr>
 endif
 
+if (has("termguicolors"))
+   set termguicolors
+endif
+
+colorscheme gruvbox
 "======================================================
 " {{{
 set background=dark
@@ -75,10 +81,7 @@ set cursorline
 "set cursorcolumn
 
 "}}}
-"======================================================
 
-let base16colorspace=256
-colorscheme base16-isotope
 
 "======================================================
 
@@ -121,21 +124,23 @@ let g:go_highlight_build_constraints = 1
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='papercolor'
 
 " syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_python_checkers=['python']
-let g:syntastic_html_checkers=['']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 1
+"let g:syntastic_error_symbol='✗'
+"let g:syntastic_warning_symbol='⚠'
+"let g:syntastic_python_checkers=['python']
+"let g:syntastic_html_checkers=['']
+
+" Neomake
+autocmd! BufWritePost * Neomake
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
