@@ -39,3 +39,5 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f ~/.zsh_private ] && source ~/.zsh_private
 
+
+export PATH="$HOME/.yarn/bin:$PATH:$GOPATH/bin"

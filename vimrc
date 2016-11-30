@@ -5,7 +5,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
@@ -28,9 +27,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'luochen1990/rainbow'
-Plug 'wlangstroth/vim-racket'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -112,14 +110,6 @@ nnoremap <leader>ag :Ag <C-R><C-W><CR>
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_width = 25
-
-" vim-go
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
