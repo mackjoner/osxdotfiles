@@ -73,6 +73,7 @@ set tabstop=4
 
 set mouse=n
 
+set list
 set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 set cursorline
