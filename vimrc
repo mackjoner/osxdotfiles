@@ -21,7 +21,7 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer', 'for': ['python', 'rust'] }
 Plug 'edkolev/tmuxline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
@@ -33,6 +33,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'neomake/neomake'
+Plug 'fatih/vim-go', { 'for': 'go' }
 call plug#end()
 
 let mapleader = ";"
@@ -151,6 +152,13 @@ let python_highlight_all = 1
 
 " Rainbow settings
 let g:rainbow_active = 1
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 "======================================================
 
 " {{{
