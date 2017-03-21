@@ -21,7 +21,7 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer', 'for': ['python', 'rust'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
 Plug 'edkolev/tmuxline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'flazz/vim-colorschemes'
@@ -144,7 +144,6 @@ let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 let g:ycm_rust_src_path = '/Users/liuerfire/OpenSource/rust/src'
 let g:ycm_global_ycm_extra_conf = '/Users/liuerfire/.config/ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " python-syntax settings
