@@ -16,9 +16,6 @@ Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-"Plug 'scrooloose/syntastic'
-Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
@@ -49,7 +46,7 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme gruvbox
+colorscheme material-theme
 "======================================================
 " {{{
 set background=dark
@@ -117,20 +114,6 @@ let g:tagbar_width = 25
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" syntastic settings
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 1
-"let g:syntastic_error_symbol='✗'
-"let g:syntastic_warning_symbol='⚠'
-"let g:syntastic_python_checkers=['python']
-"let g:syntastic_html_checkers=['']
-
 " Neomake
 autocmd! BufWritePost * Neomake
 
@@ -145,9 +128,6 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 let g:ycm_rust_src_path = '/Users/liuerfire/OpenSource/rust/src'
 let g:ycm_global_ycm_extra_conf = '/Users/liuerfire/.config/ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" python-syntax settings
-let python_highlight_all = 1
 
 " Rainbow settings
 let g:rainbow_active = 1
