@@ -46,7 +46,7 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme material-theme
+colorscheme gruvbox
 "======================================================
 " {{{
 set background=dark
@@ -132,6 +132,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 " Rainbow settings
 let g:rainbow_active = 1
 
+let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1

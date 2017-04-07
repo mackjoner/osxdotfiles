@@ -11,6 +11,9 @@ zplug "plugins/rust", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/npm", from:oh-my-zsh
 
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
 #zplug "liuerfire/my-zsh-config/", use:init.zsh
 zplug "~/Projects/dotfiles/zsh", from:local, use:init.zsh
 
