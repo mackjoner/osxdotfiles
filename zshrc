@@ -10,6 +10,8 @@ zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/rust", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/npm", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
 
 zplug mafredri/zsh-async, from:github
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
