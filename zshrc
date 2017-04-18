@@ -30,6 +30,7 @@ zplug load --verbose
 export CLICOLOR=1
 export GPG_TTY=$(tty)
 export PYTHONSTARTUP=$HOME/.config/pythonstartup.py
+export GOPATH=$HOME/go
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -41,5 +42,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f ~/.zsh_private ] && source ~/.zsh_private
 
+PATH="$HOME/.yarn/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 
-export PATH="$HOME/.yarn/bin:$PATH"
+typeset -U PATH
+export PATH
