@@ -31,7 +31,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'neomake/neomake'
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
 call plug#end()
 
 let mapleader = ";"
@@ -47,7 +46,9 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme PaperColor
+
 "======================================================
 " {{{
 set background=dark
@@ -160,14 +161,6 @@ map <F4> "+p
 nnoremap j gj
 nnoremap k gk
 
-inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
-inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
-inoremap <leader>3 {}<esc>:let leavechar="}"<cr>i
-inoremap <leader>4 {<esc>o}<esc>:let leavechar="}"<cr>O
-inoremap <leader>5 (<esc>o)<esc>:let leavechar=")"<cr>O
-inoremap <leader>6 [<esc>o]<esc>:let leavechar="]"<cr>O
-inoremap <leader>q ''<esc>:let leavechar="'"<cr>i
-inoremap <leader>w ""<esc>:let leavechar='"'<cr>i
 
 " The variable _s is used to save and restore the last search pattern
 " register (so next time the user presses n they will continue their last search),

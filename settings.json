@@ -1,0 +1,36 @@
+{
+	"editor.fontFamily": "Mononoki",
+	"editor.renderWhitespace": "boundary",
+	"window.reopenFolders": "none",
+
+	"editor.renderIndentGuides": true,
+
+	"files.trimTrailingWhitespace": true,
+
+	"editor.tabSize": 2,
+
+	"[go]": {
+		"editor.tabSize": 4
+    },
+	"[python]": {
+		"editor.tabSize": 4
+	},
+    "workbench.iconTheme": "vs-seti",
+
+    "go.formatTool": "goimports",
+    "workbench.colorTheme": "Material Theme",
+
+	"eslint.enable": false,
+
+	"vim.easymotion": true,
+	"vim.leader": ";",
+
+	"vim.insertModeKeyBindings": [
+		{
+			"before": ["<C-e>"],
+			"after": ["<ESC>", "A"]
+		}
+	],
+
+	"go.docsTool": "gogetdoc"
+}
