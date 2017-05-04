@@ -5,32 +5,46 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
+" Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'morhetz/gruvbox'
+
+" Edit
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'Raimondi/delimitMate'
+Plug 'luochen1990/rainbow'
+
+" Git
+Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar'
+
+" Tool
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'Yggdroot/indentLine'
-Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
-Plug 'edkolev/tmuxline.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'flazz/vim-colorschemes'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'luochen1990/rainbow'
-Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Autocomplete
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Lint
+Plug 'w0rp/ale'
+
+" Language
+Plug 'sheerun/vim-polyglot'
+Plug 'Yggdroot/indentLine', { 'for': 'python' }
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'neomake/neomake'
 Plug 'fatih/vim-go', { 'for': 'go' }
+
 call plug#end()
 
 let mapleader = ";"
@@ -46,11 +60,8 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-"colorscheme gruvbox
-colorscheme PaperColor
+colorscheme gruvbox
 
-"======================================================
-" {{{
 set background=dark
 set nu
 set showcmd
@@ -79,14 +90,8 @@ set showbreak=↪
 set cursorline
 "set cursorcolumn
 
-"}}}
-
-
-"======================================================
-
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
-
 autocmd FileType ruby,eruby,scheme,racket,javascript,sql setlocal et sta sw=2
 autocmd FileType html,htmldjango,xhtml,css,scss,xml,yaml setlocal et sta sw=2
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -98,55 +103,6 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 
 set viminfo='100,:100,<100,s100
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
-
-"======================================================
-
-" fzf-vim
-nnoremap <C-p> :FZF<CR>
-nnoremap <leader>ag :Ag <C-R><C-W><CR>
-
-" tagbar.vim
-nmap <silent> <leader>t :TagbarToggle<CR>
-let g:tagbar_left = 0
-let g:tagbar_width = 25
-
-"vim-airline settings
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-" Neomake
-autocmd! BufWritePost * Neomake
-
-" UltiSnips settings
-let g:UltiSnipsExpandTrigger="<c-j>"
-
-" javascript-libraries-syntax.vim settings
-let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
-
-" YouCompleteMe settings
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-let g:ycm_rust_src_path = '/Users/liuerfire/OpenSource/rust/src'
-let g:ycm_global_ycm_extra_conf = '/Users/liuerfire/.config/ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" Rainbow settings
-let g:rainbow_active = 1
-
-let g:go_fmt_command = "goimports"
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-
-let python_highlight_all = 1
-"======================================================
-
-" {{{
 
 nn <C-J> :bp<cr>
 nn <C-K> :bn<cr>
@@ -161,6 +117,11 @@ map <F4> "+p
 nnoremap j gj
 nnoremap k gk
 
+" quickfix and loclist
+nnoremap <leader>cn :cprevious<cr>
+nnoremap <leader>cn :cnext<cr>
+nnoremap <leader>lp :lprevious<cr>
+nnoremap <leader>ln :lnext<cr>
 
 " The variable _s is used to save and restore the last search pattern
 " register (so next time the user presses n they will continue their last search),
@@ -171,5 +132,55 @@ nnoremap k gk
 " http://vim.wikia.com/wiki/Remove_unwanted_spaces
 nnoremap <silent><leader>sw  :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-"}}}
-"=====================================================
+map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
+
+" Plugin {{{
+
+" ale
+nmap <leader>al <Plug>(ale_previous_wrap)
+nmap <leader>an <Plug>(ale_next_wrap)
+
+" fzf-vim
+nnoremap <C-p> :FZF<CR>
+nnoremap <leader>ag :Ag <C-R><C-W><CR>
+
+" tagbar.vim
+nmap <silent> <leader>t :TagbarToggle<CR>
+let g:tagbar_left = 0
+let g:tagbar_width = 25
+
+"vim-airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'aurora'
+
+" UltiSnips settings
+let g:UltiSnipsExpandTrigger="<c-j>"
+
+" javascript-libraries-syntax.vim settings
+let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
+
+" YouCompleteMe settings
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_rust_src_path = $HOME.'/OpenSource/rust/src'
+let g:ycm_global_ycm_extra_conf = $HOME.'/.config/ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Rainbow settings
+let g:rainbow_active = 1
+
+" delimitMate
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let python_highlight_all = 1
+" }}}
+
