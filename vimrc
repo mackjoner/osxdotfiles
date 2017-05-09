@@ -104,12 +104,6 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 set viminfo='100,:100,<100,s100
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-nn <C-J> :bp<cr>
-nn <C-K> :bn<cr>
-
-imap <C-e> <END>
-imap <C-a> <ESC>I
-
 map <F2> "+y
 map <F3> "+x
 map <F4> "+p
@@ -118,10 +112,19 @@ nnoremap j gj
 nnoremap k gk
 
 " quickfix and loclist
-nnoremap <leader>cn :cprevious<cr>
-nnoremap <leader>cn :cnext<cr>
-nnoremap <leader>lp :lprevious<cr>
-nnoremap <leader>ln :lnext<cr>
+nnoremap [q :cprevious<cr>zz
+nnoremap ]q :cnext<cr>zz
+nnoremap [l :lprevious<cr>zz
+nnoremap ]l :lnext<cr>zz
+
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
+
+nnoremap <tab>   <C-w>w
+nnoremap <S-tab> <C-w>W
+
+imap <C-e> <ESC>A
+imap <C-a> <ESC>I
 
 " The variable _s is used to save and restore the last search pattern
 " register (so next time the user presses n they will continue their last search),
@@ -137,12 +140,14 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 " Plugin {{{
 
 " ale
-nmap <leader>al <Plug>(ale_previous_wrap)
-nmap <leader>an <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_lint_on_enter = 0
 
 " fzf-vim
 nnoremap <C-p> :FZF<CR>
 nnoremap <leader>ag :Ag <C-R><C-W><CR>
+nnoremap <leader><Enter> :Buffers<CR>
 
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
