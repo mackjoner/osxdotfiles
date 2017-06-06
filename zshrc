@@ -42,7 +42,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f ~/.zsh_private ] && source ~/.zsh_private
 
-PATH="$HOME/.yarn/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
+PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
 
 typeset -U PATH
 export PATH

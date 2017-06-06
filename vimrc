@@ -29,9 +29,11 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " Lint
 Plug 'w0rp/ale'
@@ -111,6 +113,11 @@ map <F4> "+p
 nnoremap j gj
 nnoremap k gk
 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " quickfix and loclist
 nnoremap [q :cprevious<cr>zz
 nnoremap ]q :cnext<cr>zz
@@ -119,9 +126,6 @@ nnoremap ]l :lnext<cr>zz
 
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
-
-nnoremap <tab>   <C-w>w
-nnoremap <S-tab> <C-w>W
 
 imap <C-e> <ESC>A
 imap <C-a> <ESC>I
@@ -140,9 +144,8 @@ map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 " Plugin {{{
 
 " ale
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_lint_on_enter = 0
+nmap [a <Plug>(ale_previous_wrap)
+nmap ]a <Plug>(ale_next_wrap)
 
 " fzf-vim
 nnoremap <C-p> :FZF<CR>
@@ -166,10 +169,10 @@ let g:UltiSnipsExpandTrigger="<c-j>"
 let g:used_javascript_libs = 'angularjs,angularui,jquery,react'
 
 " YouCompleteMe settings
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-let g:ycm_rust_src_path = $HOME.'/OpenSource/rust/src'
-let g:ycm_global_ycm_extra_conf = $HOME.'/.config/ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"nnoremap <leader>jd :YcmCompleter GoTo<CR>
+"let g:ycm_rust_src_path = $HOME.'/OpenSource/rust/src'
+"let g:ycm_global_ycm_extra_conf = $HOME.'/.config/ycm_extra_conf.py'
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Rainbow settings
 let g:rainbow_active = 1
@@ -187,5 +190,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let python_highlight_all = 1
+
+let g:deoplete#enable_at_startup = 1
 " }}}
 
