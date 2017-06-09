@@ -10,6 +10,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'romainl/Apprentice'
 
 " Edit
 Plug 'tpope/vim-surround'
@@ -29,7 +32,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Autocomplete
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --racer-completer --gocode-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['cpp', 'c'] }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -62,8 +65,6 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
-colorscheme gruvbox
-
 set background=dark
 set nu
 set showcmd
@@ -91,6 +92,11 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 set cursorline
 "set cursorcolumn
+
+"colorscheme gruvbox
+colorscheme PaperColor
+"colorscheme hybrid_material
+"colorscheme apprentice
 
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
@@ -192,5 +198,6 @@ let g:go_highlight_build_constraints = 1
 let python_highlight_all = 1
 
 let g:deoplete#enable_at_startup = 1
+
 " }}}
 

@@ -1,48 +1,42 @@
-source ~/.zplug/init.zsh
 
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-zplug "plugins/colored-man-pages", from:oh-my-zsh
-zplug "plugins/mercurial", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/rust", from:oh-my-zsh
-zplug "plugins/python", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/docker-compose", from:oh-my-zsh
+#
+# User configuration sourced by interactive shells
+#
 
-zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-
-#zplug "liuerfire/my-zsh-config/", use:init.zsh
-zplug "~/Projects/dotfiles/zsh", from:local, use:init.zsh
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+# Source zim
+if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
+  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
-zplug load --verbose
 
-export CLICOLOR=1
-export GPG_TTY=$(tty)
-export PYTHONSTARTUP=$HOME/.config/pythonstartup.py
-export GOPATH=$HOME/go
+bindkey -e
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 _fzf_compgen_path() {
     ag -g "" "$1"
 }
-
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
 [ -f ~/.zsh_private ] && source ~/.zsh_private
 
 PATH="$HOME/.cargo/bin:$HOME/go/bin:$PATH"
-
-typeset -U PATH
 export PATH
+
+alias vi='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+
+#less 语法高亮需要安装source-highlight
+PAGER='less -X -M'
+
+if [ -e "/usr/bin/apt-get" ]; then # ubuntu
+    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+elif [ -e "/usr/local/bin/src-hilite-lesspipe.sh" ]; then # Mac OS X
+    export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+else # Arch
+    export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+fi
+export LESS=' -R '
+
+export GPG_TTY=$(tty)
