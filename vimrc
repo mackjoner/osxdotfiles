@@ -32,7 +32,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Autocomplete
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['cpp', 'c'] }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -65,6 +65,7 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
+set fileencodings=ucs-bom,utf-8,gb18030,gb2312,gbk,cp936
 set background=dark
 set nu
 set showcmd
@@ -93,10 +94,22 @@ set showbreak=↪
 set cursorline
 "set cursorcolumn
 
+let g:PaperColor_Theme_Options = {
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     },
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     },
+  \     'c': {
+  \       'highlight_builtins' : 1
+  \     }
+  \   }
+  \ }
+
 "colorscheme gruvbox
 colorscheme PaperColor
-"colorscheme hybrid_material
-"colorscheme apprentice
 
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
