@@ -32,11 +32,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Autocomplete
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
 " Lint
 Plug 'w0rp/ale'
@@ -114,7 +115,7 @@ colorscheme PaperColor
 au BufNewFile,BufRead *.t2t set ft=txt2tags
 au BufNewFile,BufRead *.j2 set ft=htmldjango
 autocmd FileType ruby,eruby,scheme,racket,javascript,sql setlocal et sta sw=2
-autocmd FileType html,htmldjango,xhtml,css,scss,xml,yaml setlocal et sta sw=2
+autocmd FileType html,htmldjango,xhtml,css,scss,xml,yaml,toml setlocal et sta sw=2
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType html,markdown set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -160,11 +161,12 @@ nnoremap <silent><leader>sw  :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:noh
 
 map <leader>cta <esc>:!ctags -R --c++-kinds=+p --fields=+liaS --extra=+q<CR>
 
-" Plugin {{{
-
 " ale
 nmap [a <Plug>(ale_previous_wrap)
 nmap ]a <Plug>(ale_next_wrap)
+
+let g:ale_linters = {'go': ['gometalinter']}
+let g:ale_go_gometalinter_options = '--vendor --fast --disable=gocyclo'
 
 " fzf-vim
 nnoremap <C-p> :FZF<CR>
@@ -211,6 +213,7 @@ let g:go_highlight_build_constraints = 1
 let python_highlight_all = 1
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 
-" }}}
-
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
