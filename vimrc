@@ -1,5 +1,7 @@
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim', '~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
@@ -23,15 +25,21 @@ Plug 'luochen1990/rainbow'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-github-dashboard'
+
+" Shorthand notation;
+Plug 'junegunn/vim-easy-align'
 
 " Tool
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/pboettch/vim-cmake-syntax.git', { 'for': 'cmake' }
 
 " Autocomplete
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -39,17 +47,29 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
+" Plugin options
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
 " Lint
 Plug 'w0rp/ale'
 
 " Language
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', { 'for': 'AllInOne' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tbastos/vim-lua', { 'for': 'lua' }
 Plug 'Yggdroot/indentLine', { 'for': 'python' }
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+Plug 'https://github.com/vim-python/python-syntax.git', { 'for': 'python' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+"Plug 'othree/javascript-libraries-syntax.vim'
+"Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'fatih/vim-go', { 'for': 'go' }
+"Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
+Plug 'vim-scripts/c.vim', { 'for': 'c' }
+Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git', { 'for': 'cpp11/14/17' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'https://github.com/neovimhaskell/haskell-vim.git', { 'for': 'haskell' }
+
 
 call plug#end()
 
@@ -178,6 +198,9 @@ nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
 let g:tagbar_width = 25
 
+" NERDTree
+nnoremap <leader>t :NERDTreeToggle<CR>
+
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -202,6 +225,14 @@ let g:rainbow_active = 1
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -210,10 +241,24 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let python_highlight_all = 1
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+" which works in most cases, but can be a little slow on large files.
+"let g:cpp_experimental_simple_template_highlight = 1
+" which is a faster implementation but has some corner cases where it doesn't work.
+"let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+"let g:cpp_no_function_highlight = 1
+
+"let python_highlight_all = 1
+let g:python_highlight_all = 1
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+
+let g:lua_syntax_someoption = 1
+let g:scala_scaladoc_indent = 1
 
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
