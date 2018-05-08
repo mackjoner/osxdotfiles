@@ -193,6 +193,17 @@ nnoremap <C-p> :FZF<CR>
 nnoremap <leader>ag :Ag <C-R><C-W><CR>
 nnoremap <leader><Enter> :Buffers<CR>
 
+" keymap
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" clean search highlight
+noremap <silent><leader>/ :nohlsearch<CR>
+
 " tagbar.vim
 nmap <silent> <leader>t :TagbarToggle<CR>
 let g:tagbar_left = 0
