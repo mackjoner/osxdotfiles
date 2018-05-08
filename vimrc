@@ -199,7 +199,7 @@ let g:tagbar_left = 0
 let g:tagbar_width = 25
 
 " NERDTree
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
