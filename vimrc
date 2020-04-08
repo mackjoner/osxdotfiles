@@ -54,7 +54,7 @@ Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 Plug 'w0rp/ale'
 
 " Language
-Plug 'sheerun/vim-polyglot', { 'for': 'AllInOne' }
+"Plug 'sheerun/vim-polyglot', { 'for': 'AllInOne' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tbastos/vim-lua', { 'for': 'lua' }
 Plug 'Yggdroot/indentLine', { 'for': 'python' }
@@ -106,6 +106,7 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set backspace=2
 
 set mouse=n
 
