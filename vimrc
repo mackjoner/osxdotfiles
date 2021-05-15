@@ -216,7 +216,7 @@ nnoremap <silent> <leader>d :NERDTreeToggle<CR>
 "vim-airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'aurora'
+"let g:airline_theme = 'aurora'
 
 " UltiSnips settings
 let g:UltiSnipsExpandTrigger="<c-j>"
