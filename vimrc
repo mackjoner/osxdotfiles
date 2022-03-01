@@ -43,7 +43,15 @@ Plug 'https://github.com/pboettch/vim-cmake-syntax.git', { 'for': 'cmake' }
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --gocode-completer --racer-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
@@ -69,7 +77,6 @@ Plug 'vim-scripts/c.vim', { 'for': 'c' }
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git', { 'for': 'cpp11/14/17' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'https://github.com/neovimhaskell/haskell-vim.git', { 'for': 'haskell' }
-
 
 call plug#end()
 
@@ -115,6 +122,9 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
 set showbreak=↪
 set cursorline
 "set cursorcolumn
+
+set completeopt=menuone,noinsert,noselect,preview
+set pyxversion=3
 
 let g:PaperColor_Theme_Options = {
   \   'language': {
@@ -265,6 +275,7 @@ let g:cpp_concepts_highlight = 1
 
 "let python_highlight_all = 1
 let g:python_highlight_all = 1
+let g:python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.10/bin/python3"
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
