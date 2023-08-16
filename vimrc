@@ -51,6 +51,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
@@ -63,11 +65,11 @@ Plug 'w0rp/ale'
 
 " Language
 "Plug 'sheerun/vim-polyglot', { 'for': 'AllInOne' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tbastos/vim-lua', { 'for': 'lua' }
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"Plug 'tbastos/vim-lua', { 'for': 'lua' }
 Plug 'Yggdroot/indentLine', { 'for': 'python' }
 Plug 'https://github.com/vim-python/python-syntax.git', { 'for': 'python' }
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+"Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 "Plug 'othree/javascript-libraries-syntax.vim'
 "Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -75,10 +77,14 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 Plug 'vim-scripts/c.vim', { 'for': 'c' }
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git', { 'for': 'cpp11/14/17' }
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'https://github.com/neovimhaskell/haskell-vim.git', { 'for': 'haskell' }
+"Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+"Plug 'https://github.com/neovimhaskell/haskell-vim.git', { 'for': 'haskell' }
 
 call plug#end()
+
+if (has("python3"))
+  set pyxversion=3
+endif
 
 let mapleader = ";"
 nmap <space> :
@@ -94,6 +100,7 @@ if (has("termguicolors"))
 endif
 
 set fileencodings=ucs-bom,utf-8,gb18030,gb2312,gbk,cp936
+set encoding=utf-8
 set background=dark
 set nu
 set showcmd
@@ -247,13 +254,13 @@ let g:rainbow_active = 1
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
-let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+"let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+"let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+"let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+"let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+"let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+"let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+"let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
@@ -277,11 +284,8 @@ let g:cpp_concepts_highlight = 1
 let g:python_highlight_all = 1
 let g:python3_host_prog = "/Library/Frameworks/Python.framework/Versions/3.10/bin/python3"
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-
-let g:lua_syntax_someoption = 1
-let g:scala_scaladoc_indent = 1
+"let g:lua_syntax_someoption = 1
+"let g:scala_scaladoc_indent = 1
 
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
